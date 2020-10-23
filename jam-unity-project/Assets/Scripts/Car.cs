@@ -114,11 +114,8 @@ public class Car : MonoBehaviour {
 	Engine Engine;
 
 	GameObject CenterOfGravity;
-	GameObject CameraView;
 
 	void Awake() {
-
-		CameraView = GameObject.Find ("CameraView").gameObject;
 
 		Rigidbody2D = GetComponent<Rigidbody2D> ();
 		CenterOfGravity = transform.Find ("CenterOfGravity").gameObject;
@@ -142,7 +139,7 @@ public class Car : MonoBehaviour {
 		// Extend the calculations past actual car dimensions for better simulation
 		AxleFront.DistanceToCG *= AxleDistanceCorrection;
 		AxleRear.DistanceToCG *= AxleDistanceCorrection;
-			
+
 		WheelBase = AxleFront.DistanceToCG + AxleRear.DistanceToCG;
 		Inertia = Rigidbody2D.mass * InertiaScale;
 
@@ -152,7 +149,7 @@ public class Car : MonoBehaviour {
 	}
 
 	void Start() {
-		
+
 		AxleFront.Init (Rigidbody2D, WheelBase);
 		AxleRear.Init (Rigidbody2D, WheelBase);
 
@@ -170,10 +167,10 @@ public class Car : MonoBehaviour {
 
 			if (Input.GetKey (KeyCode.UpArrow)) {
 				Throttle = 1;
-			} else if (Input.GetKey (KeyCode.DownArrow)) { 
+			} else if (Input.GetKey (KeyCode.DownArrow)) {
 				//Brake = 1;
 				Throttle = -1;
-			} 
+			}
 			if(Input.GetKey(KeyCode.Space))	{
 				EBrake = 1;
 			}
@@ -202,7 +199,7 @@ public class Car : MonoBehaviour {
 			// Set front axle tires rotation
 			AxleFront.TireRight.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * SteerAngle);
 			AxleFront.TireLeft.transform.localRotation = Quaternion.Euler(0, 0, Mathf.Rad2Deg * SteerAngle);
-		}			
+		}
 
 
 		// Calculate weight center of four tires
@@ -219,7 +216,7 @@ public class Car : MonoBehaviour {
 				(AxleFront.TireRight.transform.localPosition) * wfr +
 			    (AxleRear.TireLeft.transform.localPosition) * wrl +
 				(AxleRear.TireRight.transform.localPosition) * wrr;
-		
+
 			float weightTotal = wfl + wfr + wrl + wrr;
 
 			if (weightTotal > 0) {
@@ -245,14 +242,8 @@ public class Car : MonoBehaviour {
 
 		// Automatic transmission
 		Engine.UpdateAutomaticTransmission (Rigidbody2D);
-
-        // Update camera
-        if (IsPlayerControlled)
-        {
-            CameraView.transform.position = this.transform.position;
-        }
 	}
-			
+
 	void FixedUpdate() {
 
 		// Update from rigidbody to retain collision responses
@@ -279,7 +270,7 @@ public class Car : MonoBehaviour {
 		AxleFront.TireRight.ActiveWeight = weightFront + transferY;
 		AxleRear.TireLeft.ActiveWeight = weightRear - transferY;
 		AxleRear.TireRight.ActiveWeight = weightRear + transferY;
-			
+
 		// Velocity of each tire
 		AxleFront.TireLeft.AngularVelocity = AxleFront.DistanceToCG * AngularVelocity;
 		AxleFront.TireRight.AngularVelocity = AxleFront.DistanceToCG * AngularVelocity;
@@ -328,7 +319,7 @@ public class Car : MonoBehaviour {
 		if (Throttle == 0) {
 			Velocity = Vector2.Lerp (Velocity, Vector2.zero, 0.005f);
 		}
-	
+
 		// Acceleration
 		LocalAcceleration.x = totalForceX / Rigidbody2D.mass;
 		LocalAcceleration.y = totalForceY / Rigidbody2D.mass;
@@ -359,7 +350,7 @@ public class Car : MonoBehaviour {
 
 		var angularAcceleration = angularTorque / Inertia;
 
-		// Update 
+		// Update
 		AngularVelocity += angularAcceleration * Time.deltaTime;
 
 		// Simulation likes to calculate high angular velocity at very low speeds - adjust for this
@@ -380,7 +371,7 @@ public class Car : MonoBehaviour {
 		float steer = 0;
 
 		if(Mathf.Abs(steerInput) > 0.001f) {
-			steer = Mathf.Clamp(SteerDirection + steerInput * Time.deltaTime * SteerSpeed, -1.0f, 1.0f); 
+			steer = Mathf.Clamp(SteerDirection + steerInput * Time.deltaTime * SteerSpeed, -1.0f, 1.0f);
 		}
 		else
 		{
