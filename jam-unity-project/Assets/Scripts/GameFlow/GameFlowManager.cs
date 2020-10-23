@@ -18,6 +18,9 @@ namespace GameFlow
 
     [SerializeField] private TextMeshProUGUI _tabToStartLabel;
 
+    [SerializeField] private TextMeshProUGUI _firstPlayerTurn;
+    [SerializeField] private TextMeshProUGUI _secondPlayerTurn;
+
     [SerializeField] private TextMeshProUGUI _firstPlayerFinished;
     [SerializeField] private TextMeshProUGUI _secondPlayerFinished;
 
@@ -53,6 +56,8 @@ namespace GameFlow
 
       _firstPlayerFinished.gameObject.SetActive(false);
       _secondPlayerFinished.gameObject.SetActive(false);
+      _firstPlayerTurn.gameObject.SetActive(false);
+      _secondPlayerTurn.gameObject.SetActive(false);
       _firstPlayerLose.gameObject.SetActive(false);
       _secondPlayerLose.gameObject.SetActive(false);
 
@@ -182,7 +187,12 @@ namespace GameFlow
         CurrentPlayer = PlayerTypeId.Second;
       else if (CurrentPlayer == PlayerTypeId.Second)
         CurrentPlayer = PlayerTypeId.First;
+      
+      SetToPlayerAnnouncement();
+    }
 
+    private void SetToPlayerAnnouncement()
+    {
       SetToGameplay();
     }
   }

@@ -5,6 +5,6 @@
     Gameplay,
     StartScreen,
     PlayerReachedFinish,
-
+    PlayerAnnouncement
   }
 }
