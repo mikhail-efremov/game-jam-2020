@@ -48,7 +48,7 @@ namespace GameFlow
     private void SetToGameplay()
     {
       CurrentStateId = GameFlowStateId.Gameplay;
-      
+
       if (CurrentCar != null)
         CurrentCar.enabled = true;
       _tabToStartLabel.gameObject.SetActive(false);

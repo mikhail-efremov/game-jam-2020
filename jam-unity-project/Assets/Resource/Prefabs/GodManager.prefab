@@ -46,7 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentCar: {fileID: 0}
   _tabToStartLabel: {fileID: 0}
-  _finishes: []
+  _finishes:
+  - {fileID: 0}
 --- !u!114 &1532025049
 MonoBehaviour:
   m_ObjectHideFlags: 0
