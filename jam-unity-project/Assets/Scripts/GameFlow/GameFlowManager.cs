@@ -1,5 +1,6 @@
 ﻿using System.Collections;
-using System.Globalization;
+using System.Collections.Generic;
+using System.Linq;
 using DG.Tweening;
 using LevelLogic;
 using TMPro;
@@ -25,8 +26,9 @@ namespace GameFlow
 
     [SerializeField] private FinishTrigger[] _finishes;
 
-    public static GameFlowStateId CurrentStateId;
-    public static PlayerTypeId CurrentPlayer;
+    public GameFlowStateId CurrentStateId;
+    public PlayerTypeId CurrentPlayer;
+    public List<StartTrigger> Starts;
 
     public static GameFlowManager Instance = null;
 
@@ -41,6 +43,8 @@ namespace GameFlow
 
     private void Start()
     {
+      Starts = FindObjectsOfType<StartTrigger>().ToList();
+
       DOTween.SetTweensCapacity(99999, 99999);
 
       _timerText.text = GameController.turnDuration.ToString("N2").Replace(",", ".");;

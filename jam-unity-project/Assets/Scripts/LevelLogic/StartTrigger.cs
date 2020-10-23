@@ -5,7 +5,8 @@ namespace LevelLogic
 {
   public class StartTrigger : MonoBehaviour
   {
-    [SerializeField] private PlayerTypeId Player;
+    public int Index => index;
+
     [SerializeField] private int index;
   }
 }

@@ -5,7 +5,6 @@ namespace LevelLogic
 {
   public class FinishTrigger : MonoBehaviour
   {
-    [SerializeField] private PlayerTypeId Player;
     [SerializeField] private int index;
 
     private void OnTriggerStay2D(Collider2D other)

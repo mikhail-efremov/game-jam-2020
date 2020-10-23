@@ -1,15 +1,15 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 using DefaultNamespace;
 using GameFlow;
+using LevelLogic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class GameController : MonoBehaviour
 {
   public const float turnDuration = 12f;
   public const float timelapseDuration = 4f;
   public GameObject car;
-  [FormerlySerializedAs("positions")] public List<Vector3> spawnPositions;
 
   public bool TimeLapsIsActive => _isTimeLapse && _gameTick > 0;
 
@@ -87,7 +87,11 @@ public class GameController : MonoBehaviour
   {
     _currentCarIndex++;
 
-    var go = Instantiate(car, spawnPositions[_currentCarIndex], Quaternion.identity);
+    var start = GameFlowManager.Instance.Starts
+      .First(x => x.Index == _currentCarIndex + 1);
+    var startTransform = start.transform;
+
+    var go = Instantiate(car, startTransform.position, startTransform.rotation);
     var carComponent = go.GetComponent<Car>();
     carComponent.IsPlayerControlled = true;
 
