@@ -393,6 +393,7 @@ public class Car : MonoBehaviour {
 	}
 
 	void OnGUI (){
+		return;
         if (IsPlayerControlled)
         {
             GUI.Label(new Rect(5, 5, 300, 20), "Speed: " + SpeedKilometersPerHour.ToString());

@@ -43,3 +43,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e9391c5cff2bcfa43827305f802138ff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _currentCar: {fileID: 0}
+  _tabToStartLabel: {fileID: 0}
