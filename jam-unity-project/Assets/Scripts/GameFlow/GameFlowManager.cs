@@ -24,11 +24,11 @@ namespace GameFlow
     [SerializeField] private TextMeshProUGUI _firstPlayerLose;
     [SerializeField] private TextMeshProUGUI _secondPlayerLose;
 
-    [SerializeField] private FinishTrigger[] _finishes;
-
     public GameFlowStateId CurrentStateId;
     public PlayerTypeId CurrentPlayer;
+
     public List<StartTrigger> Starts;
+    public List<FinishTrigger> Finishes;
 
     public static GameFlowManager Instance = null;
 
@@ -44,6 +44,8 @@ namespace GameFlow
     private void Start()
     {
       Starts = FindObjectsOfType<StartTrigger>().ToList();
+      Finishes = FindObjectsOfType<FinishTrigger>().ToList();
+      DisableFinishes();
 
       DOTween.SetTweensCapacity(99999, 99999);
 
@@ -103,6 +105,8 @@ namespace GameFlow
 
     private void SetToGameplay()
     {
+      DisableFinishes();
+
       _setTimerAlarm = false;
       CurrentStateId = GameFlowStateId.Gameplay;
 
@@ -111,6 +115,16 @@ namespace GameFlow
       _tabToStartLabel.gameObject.SetActive(false);
 
       GetComponent<GameController>().GetNextCar();
+      var finish = Finishes.Find(x => x.Index == GetComponent<GameController>().CurrentCarIndex + 1);
+      finish.gameObject.SetActive(true);
+    }
+
+    private void DisableFinishes()
+    {
+      foreach (var finishTrigger in Finishes)
+      {
+        finishTrigger.gameObject.SetActive(false);
+      }
     }
 
     private void SetToPlayerReachedFinish()
