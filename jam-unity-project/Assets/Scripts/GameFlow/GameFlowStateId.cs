@@ -4,5 +4,7 @@
   {
     Gameplay,
     StartScreen,
+    PlayerReachedFinish,
+
   }
 }

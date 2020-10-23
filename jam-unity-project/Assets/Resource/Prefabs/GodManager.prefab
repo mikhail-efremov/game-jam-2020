@@ -46,6 +46,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentCar: {fileID: 0}
   _tabToStartLabel: {fileID: 0}
+  _firstPlayerFinished: {fileID: 0}
+  _secondPlayerFinished: {fileID: 0}
   _finishes:
   - {fileID: 0}
 --- !u!114 &1532025049

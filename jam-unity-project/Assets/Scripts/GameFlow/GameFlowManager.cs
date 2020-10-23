@@ -1,4 +1,5 @@
-﻿using DG.Tweening;
+﻿using System.Collections;
+using DG.Tweening;
 using LevelLogic;
 using TMPro;
 using UnityEngine;
@@ -9,15 +10,26 @@ namespace GameFlow
   {
     public Car CurrentCar;
     [SerializeField] private TextMeshProUGUI _tabToStartLabel;
+    [SerializeField] private TextMeshProUGUI _firstPlayerFinished;
+    [SerializeField] private TextMeshProUGUI _secondPlayerFinished;
+
     [SerializeField] private FinishTrigger[] _finishes;
 
     public static GameFlowStateId CurrentStateId;
-    public static int CurrentPlayerIndex;
+    public static PlayerTypeId CurrentPlayer;
 
     public static GameFlowManager Instance = null;
 
+    public void OnFinishEnter()
+    {
+      SetToPlayerReachedFinish();
+    }
+
     private void Start()
     {
+      _firstPlayerFinished.gameObject.SetActive(false);
+      _secondPlayerFinished.gameObject.SetActive(false);
+
       if (Instance == null)
         Instance = this;
 
@@ -41,8 +53,6 @@ namespace GameFlow
       if (CurrentCar != null)
         CurrentCar.enabled = false;
       _tabToStartLabel.DOFade(0.0f, .5f).SetEase(Ease.InExpo).SetLoops(-1, LoopType.Yoyo);
-
-      Debug.LogWarning("set to StartScreen");
     }
 
     private void SetToGameplay()
@@ -54,8 +64,29 @@ namespace GameFlow
       _tabToStartLabel.gameObject.SetActive(false);
 
       GetComponent<GameController>().StartWork();
+    }
 
-      Debug.LogWarning("set to Gameplay");
+    private void SetToPlayerReachedFinish()
+    {
+      CurrentStateId = GameFlowStateId.PlayerReachedFinish;
+
+      StartCoroutine(PlayerReachedFinish());
+    }
+
+    private IEnumerator PlayerReachedFinish()
+    {
+      //todo simulate time НАЗАД ЕБАТЬ
+      if (CurrentPlayer == PlayerTypeId.First)
+        _firstPlayerFinished.gameObject.SetActive(true);
+      if (CurrentPlayer == PlayerTypeId.Second)
+        _secondPlayerFinished.gameObject.SetActive(true);
+
+      yield return new WaitForSeconds(2);
+
+      _firstPlayerFinished.gameObject.SetActive(false);
+      _secondPlayerFinished.gameObject.SetActive(false);
+
+      //todo вырубаем тачку 
     }
   }
 }

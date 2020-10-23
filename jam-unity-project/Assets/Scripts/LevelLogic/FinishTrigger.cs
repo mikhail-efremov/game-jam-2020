@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using GameFlow;
+using UnityEngine;
 
 namespace LevelLogic
 {
@@ -7,7 +8,7 @@ namespace LevelLogic
     private void OnCollisionEnter2D(Collision2D other)
     {
       if (other.transform.GetComponent<Car>() != null)
-        Debug.LogWarning("on finish trigger");
+        GameFlowManager.Instance.OnFinishEnter();
     }
   }
 }
