@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using DefaultNamespace;
+using GameFlow;
 using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -16,7 +17,7 @@ public class GameController : MonoBehaviour
   private int _currentPos = -1;
   private int _gameTick;
 
-  void Start()
+  public void StartWork()
   {
     StartCoroutine(NextCarChooser());
   }
@@ -32,7 +33,7 @@ public class GameController : MonoBehaviour
 
   private void FixedUpdate()
   {
-    // if(ISACTION) should track only if we play and not showing some numbers 
+    // if(ISACTION) should track only if we play and not showing some numbers
     var currentCar = _cars[_currentPos];
     _carToPositions[_currentPos].Add(new CarPosition(currentCar.transform.position, currentCar.transform.rotation));
 
@@ -60,8 +61,10 @@ public class GameController : MonoBehaviour
     _currentPos++;
 
     var go = Instantiate(car, spawnPositions[_currentPos], Quaternion.identity);
-    go.GetComponent<Car>().IsPlayerControlled = true;
+    var carComponent = go.GetComponent<Car>();
+    carComponent.IsPlayerControlled = true;
 
+    GameFlowManager.Instance.CurrentCar = carComponent;
     _cars.Add(go);
     _carToPositions.Add(_currentPos, new List<CarPosition>());
     _gameTick = 0;

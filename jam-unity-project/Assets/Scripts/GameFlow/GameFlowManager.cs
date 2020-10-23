@@ -7,15 +7,20 @@ namespace GameFlow
 {
   public class GameFlowManager : MonoBehaviour
   {
-    [SerializeField] private Car _currentCar;
+    public Car CurrentCar;
     [SerializeField] private TextMeshProUGUI _tabToStartLabel;
     [SerializeField] private FinishTrigger[] _finishes;
 
     public static GameFlowStateId CurrentStateId;
     public static int CurrentPlayerIndex;
 
+    public static GameFlowManager Instance = null;
+
     private void Start()
     {
+      if (Instance == null)
+        Instance = this;
+
       SetToStartScreen();
     }
 
@@ -32,7 +37,9 @@ namespace GameFlow
     private void SetToStartScreen()
     {
       CurrentStateId = GameFlowStateId.StartScreen;
-      _currentCar.enabled = false;
+
+      if (CurrentCar != null)
+        CurrentCar.enabled = false;
       _tabToStartLabel.DOFade(0.0f, .5f).SetEase(Ease.InExpo).SetLoops(-1, LoopType.Yoyo);
 
       Debug.LogWarning("set to StartScreen");
@@ -41,8 +48,12 @@ namespace GameFlow
     private void SetToGameplay()
     {
       CurrentStateId = GameFlowStateId.Gameplay;
-      _currentCar.enabled = true;
+      
+      if (CurrentCar != null)
+        CurrentCar.enabled = true;
       _tabToStartLabel.gameObject.SetActive(false);
+
+      GetComponent<GameController>().StartWork();
 
       Debug.LogWarning("set to Gameplay");
     }
