@@ -52,8 +52,10 @@ MonoBehaviour:
   _secondPlayerFinished: {fileID: 0}
   _firstPlayerLose: {fileID: 0}
   _secondPlayerLose: {fileID: 0}
-  _finishes:
-  - {fileID: 0}
+  CurrentStateId: 0
+  CurrentPlayer: 0
+  Starts: []
+  Finishes: []
 --- !u!114 &1532025049
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -66,15 +68,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 64b512120c916624a96500b0ac21ec09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  car: {fileID: 2915736797643965748, guid: 3c82322ef82006e43bf175ae0d049f90, type: 3}
-  spawnPositions:
-  - {x: -20, y: -20, z: 0}
-  - {x: -10, y: -10, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 10, y: 10, z: 0}
-  - {x: 20, y: 20, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
-  - {x: 0, y: 0, z: 0}
+  CurrentCarIndex: -1
+  Cars:
+  - {fileID: 2915736797643965744, guid: 3c82322ef82006e43bf175ae0d049f90, type: 3}
+  - {fileID: 2915736797643965744, guid: 3c82322ef82006e43bf175ae0d049f90, type: 3}
+  - {fileID: 2915736797643965744, guid: 513ba91e69ff5314d98781872c4091a3, type: 3}
+  - {fileID: 2915736797643965744, guid: 513ba91e69ff5314d98781872c4091a3, type: 3}
+  - {fileID: 2915736797643965744, guid: 1b44e2d8f5406ff48805e26e22f65f1c, type: 3}
+  - {fileID: 2915736797643965744, guid: 1b44e2d8f5406ff48805e26e22f65f1c, type: 3}
+  - {fileID: 2915736797643965744, guid: 3c82322ef82006e43bf175ae0d049f90, type: 3}
+  - {fileID: 2915736797643965744, guid: 3c82322ef82006e43bf175ae0d049f90, type: 3}
+  - {fileID: 2915736797643965744, guid: 513ba91e69ff5314d98781872c4091a3, type: 3}
+  - {fileID: 2915736797643965744, guid: 513ba91e69ff5314d98781872c4091a3, type: 3}

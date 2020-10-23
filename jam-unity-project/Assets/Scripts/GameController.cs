@@ -8,8 +8,9 @@ public class GameController : MonoBehaviour
 {
   public const float turnDuration = 12f;
   public const float timelapseDuration = 4f;
-  public GameObject car;
   public int CurrentCarIndex = -1;
+
+  [SerializeField] private Car[] Cars;
 
   public bool TimeLapsIsActive => _isTimeLapse && _gameTick > 0;
 
@@ -68,9 +69,7 @@ public class GameController : MonoBehaviour
     _carToPositions[CurrentCarIndex].Add(new CarPosition(currentCar.transform.position, currentCar.transform.rotation));
 
     for (var i = 0; i < CurrentCarIndex; i++)
-    {
       UpdatePos(i);
-    }
 
     _gameTick++;
   }
@@ -90,12 +89,12 @@ public class GameController : MonoBehaviour
       .First(x => x.Index == CurrentCarIndex + 1);
     var startTransform = start.transform;
 
-    var go = Instantiate(car, startTransform.position, startTransform.rotation);
+    var go = Instantiate(Cars[CurrentCarIndex], startTransform.position, startTransform.rotation);
     var carComponent = go.GetComponent<Car>();
     carComponent.IsPlayerControlled = true;
 
     GameFlowManager.Instance.CurrentCar = carComponent;
-    _cars.Add(go);
+    _cars.Add(go.gameObject);
     _carToPositions.Add(CurrentCarIndex, new List<CarPosition>());
     _gameTick = 0;
   }

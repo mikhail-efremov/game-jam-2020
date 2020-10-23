@@ -335,10 +335,6 @@ PrefabInstance:
       propertyPath: _secondPlayerLose
       value: 
       objectReference: {fileID: 1472056481}
-    - target: {fileID: 146899059, guid: 2c006ffb812095f49920b03efbda01eb, type: 3}
-      propertyPath: _finishes.Array.data[0]
-      value: 
-      objectReference: {fileID: 0}
     - target: {fileID: 8126970907027706050, guid: 2c006ffb812095f49920b03efbda01eb,
         type: 3}
       propertyPath: m_LocalPosition.x
