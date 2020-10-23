@@ -91,7 +91,7 @@ public class GameController : MonoBehaviour
     var carComponent = go.GetComponent<Car>();
     carComponent.IsPlayerControlled = true;
 
-    // GameFlowManager.Instance.CurrentCar = carComponent;
+    // GameFlowManager.Instance.CurrentCar = carComponent; todo: uncomment this
     _cars.Add(go);
     _carToPositions.Add(_currentPos, new List<CarPosition>());
     _gameTick = 0;
