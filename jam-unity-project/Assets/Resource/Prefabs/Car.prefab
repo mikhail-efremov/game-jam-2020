@@ -773,7 +773,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 14e26dfb546b01c49800c6bd2ab66c0f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IsPlayerControlled: 1
+  IsPlayerControlled: 0
   CGHeight: 0.55
   InertiaScale: 1
   BrakePower: 12000
