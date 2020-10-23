@@ -1,14 +1,20 @@
 ﻿using System.Collections;
+using System.Globalization;
 using DG.Tweening;
 using LevelLogic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 namespace GameFlow
 {
   public class GameFlowManager : MonoBehaviour
   {
     public Car CurrentCar;
+    [SerializeField] private Image _timerIcon;
+    [SerializeField] private TextMeshProUGUI _timerText;
+
     [SerializeField] private TextMeshProUGUI _tabToStartLabel;
 
     [SerializeField] private TextMeshProUGUI _firstPlayerFinished;
@@ -26,6 +32,8 @@ namespace GameFlow
 
     private float CurrentTurnTime;
 
+    private bool _setTimerAlarm = false;
+
     public void OnFinishEnter()
     {
       SetToPlayerReachedFinish();
@@ -33,6 +41,10 @@ namespace GameFlow
 
     private void Start()
     {
+      DOTween.SetTweensCapacity(99999, 99999);
+
+      _timerText.text = GameController.turnDuration.ToString("N2").Replace(",", ".");;
+
       _firstPlayerFinished.gameObject.SetActive(false);
       _secondPlayerFinished.gameObject.SetActive(false);
       _firstPlayerLose.gameObject.SetActive(false);
@@ -51,14 +63,27 @@ namespace GameFlow
       if (CurrentStateId == GameFlowStateId.StartScreen && spacePressed)
       {
         SetToGameplay();
+        GetComponent<GameController>().StartController();
       }
 
       if (CurrentStateId == GameFlowStateId.Gameplay)
       {
         CurrentTurnTime += Time.deltaTime;
 
+        var timeLeft = GameController.turnDuration - CurrentTurnTime;
+        _timerText.text = timeLeft.ToString("N2").Replace(",", ".");
+
+        if (timeLeft < 3f && !_setTimerAlarm)
+        {
+          _setTimerAlarm = true;
+          _timerIcon.DOFade(0.0f, .2f).SetEase(Ease.Flash).SetLoops(-1, LoopType.Yoyo);
+          _timerText.DOFade(0.0f, .2f).SetEase(Ease.Flash).SetLoops(-1, LoopType.Yoyo);
+        }
+
         if (CurrentTurnTime > GameController.turnDuration)
-          SetPlayerLose();
+        {
+          StartCoroutine(SetPlayerLose());
+        }
       }
     }
 
@@ -73,6 +98,7 @@ namespace GameFlow
 
     private void SetToGameplay()
     {
+      _setTimerAlarm = false;
       CurrentStateId = GameFlowStateId.Gameplay;
 
       if (CurrentCar != null)
@@ -85,11 +111,12 @@ namespace GameFlow
     private void SetToPlayerReachedFinish()
     {
       CurrentStateId = GameFlowStateId.PlayerReachedFinish;
+      CurrentTurnTime = 0;
 
       StartCoroutine(PlayerReachedFinish());
     }
 
-    private void SetPlayerLose()
+    private IEnumerator SetPlayerLose()
     {
       if (CurrentPlayer == PlayerTypeId.First)
         _firstPlayerLose.gameObject.SetActive(true);
@@ -98,6 +125,9 @@ namespace GameFlow
 
       CurrentCar.EndTrails();
       Destroy(CurrentCar);
+      yield return new WaitForSeconds(2);
+
+      SceneManager.LoadScene(0);
     }
 
     private IEnumerator PlayerReachedFinish()

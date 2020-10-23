@@ -20,9 +20,13 @@ public class GameController : MonoBehaviour
   private bool _isTimeLapse;
   private bool _isActive;
 
-  public void GetNextCar()
+  public void StartController()
   {
     _isActive = true;
+  }
+
+  public void GetNextCar()
+  {
     NextCar();
   }
 

@@ -320,6 +320,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 146899059, guid: 2c006ffb812095f49920b03efbda01eb, type: 3}
+      propertyPath: _timerIcon
+      value: 
+      objectReference: {fileID: 2085122601}
+    - target: {fileID: 146899059, guid: 2c006ffb812095f49920b03efbda01eb, type: 3}
+      propertyPath: _timerText
+      value: 
+      objectReference: {fileID: 1806517264}
+    - target: {fileID: 146899059, guid: 2c006ffb812095f49920b03efbda01eb, type: 3}
       propertyPath: _tabToStartLabel
       value: 
       objectReference: {fileID: 702651114}
@@ -405,6 +413,30 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2c006ffb812095f49920b03efbda01eb, type: 3}
+--- !u!114 &1806517264 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 1806517264, guid: 2dc5c994d058ba94b8264647fd04eb87,
+    type: 3}
+  m_PrefabInstance: {fileID: 702651113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2085122601 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2085122601, guid: 2dc5c994d058ba94b8264647fd04eb87,
+    type: 3}
+  m_PrefabInstance: {fileID: 702651113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &4028132379922617304
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -45,6 +45,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   CurrentCar: {fileID: 0}
+  _timerIcon: {fileID: 0}
+  _timerText: {fileID: 0}
   _tabToStartLabel: {fileID: 0}
   _firstPlayerFinished: {fileID: 0}
   _secondPlayerFinished: {fileID: 0}
