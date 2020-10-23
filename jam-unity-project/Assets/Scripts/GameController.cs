@@ -9,6 +9,8 @@ using UnityEngine.Serialization;
 
 public class GameController : MonoBehaviour
 {
+  public const float turnDuration = 4f;
+  public const float timelapseDuration = 2f;
   public GameObject car;
   [FormerlySerializedAs("positions")] public List<Vector3> spawnPositions;
 
@@ -16,8 +18,13 @@ public class GameController : MonoBehaviour
   private Dictionary<int, List<CarPosition>> _carToPositions = new Dictionary<int, List<CarPosition>>();
   private int _currentPos = -1;
   private int _gameTick;
+  private bool _isTimeLapse;
 
   public void StartWork()
+  {
+    StartCoroutine(NextCarChooser());
+  }
+  private void Start() // todo: DeLETE IT
   {
     StartCoroutine(NextCarChooser());
   }
@@ -27,23 +34,48 @@ public class GameController : MonoBehaviour
     while (true)
     {
       NextCar();
-      yield return new WaitForSeconds(5);
+      yield return new WaitForSeconds(turnDuration);
+      _isTimeLapse = true;
+      Destroy(_cars[_currentPos].GetComponent<Car>());
+      yield return new WaitForSeconds(timelapseDuration);
+      _isTimeLapse = false;
     }
   }
 
   private void FixedUpdate()
   {
-    // if(ISACTION) should track only if we play and not showing some numbers
+    // if(ISACTION) should track only if we play and not showing some numbers 
+    if (_isTimeLapse)
+    {
+      Timelapse();
+    }
+    else
+    {
+      MoveStraightforward();
+    }
+  }
+
+  private void Timelapse()
+  {
+    var currentCar = _cars[_currentPos];
+    _carToPositions[_currentPos].Add(new CarPosition(currentCar.transform.position, currentCar.transform.rotation));
+
+    for (var i = 0; i < _currentPos + 1; i++)
+    {
+      _cars[i].transform.position = _carToPositions[i][_gameTick].position;
+      _cars[i].transform.rotation = _carToPositions[i][_gameTick].rotation;
+    }
+
+    _gameTick-=(int)(turnDuration/timelapseDuration);
+  }
+
+  private void MoveStraightforward()
+  {
     var currentCar = _cars[_currentPos];
     _carToPositions[_currentPos].Add(new CarPosition(currentCar.transform.position, currentCar.transform.rotation));
 
     for (var i = 0; i < _currentPos; i++)
     {
-      if(_gameTick>_carToPositions[i].Count)
-      {
-        _cars[i].transform.position = _carToPositions[i][_carToPositions[i].Count-1].position;
-        _cars[i].transform.rotation = _carToPositions[i][_carToPositions[i].Count-1].rotation;
-      }
       _cars[i].transform.position = _carToPositions[i][_gameTick].position;
       _cars[i].transform.rotation = _carToPositions[i][_gameTick].rotation;
     }
@@ -53,18 +85,13 @@ public class GameController : MonoBehaviour
 
   public void NextCar()
   {
-    if (_currentPos != -1)
-    {
-      Destroy(_cars[_currentPos].GetComponent<Car>());
-    }
-
     _currentPos++;
 
     var go = Instantiate(car, spawnPositions[_currentPos], Quaternion.identity);
     var carComponent = go.GetComponent<Car>();
     carComponent.IsPlayerControlled = true;
 
-    GameFlowManager.Instance.CurrentCar = carComponent;
+    // GameFlowManager.Instance.CurrentCar = carComponent;
     _cars.Add(go);
     _carToPositions.Add(_currentPos, new List<CarPosition>());
     _gameTick = 0;
