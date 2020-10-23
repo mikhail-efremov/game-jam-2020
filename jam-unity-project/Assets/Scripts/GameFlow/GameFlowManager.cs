@@ -10,8 +10,12 @@ namespace GameFlow
   {
     public Car CurrentCar;
     [SerializeField] private TextMeshProUGUI _tabToStartLabel;
+
     [SerializeField] private TextMeshProUGUI _firstPlayerFinished;
     [SerializeField] private TextMeshProUGUI _secondPlayerFinished;
+
+    [SerializeField] private TextMeshProUGUI _firstPlayerLose;
+    [SerializeField] private TextMeshProUGUI _secondPlayerLose;
 
     [SerializeField] private FinishTrigger[] _finishes;
 
@@ -19,6 +23,8 @@ namespace GameFlow
     public static PlayerTypeId CurrentPlayer;
 
     public static GameFlowManager Instance = null;
+
+    private float CurrentTurnTime;
 
     public void OnFinishEnter()
     {
@@ -29,6 +35,8 @@ namespace GameFlow
     {
       _firstPlayerFinished.gameObject.SetActive(false);
       _secondPlayerFinished.gameObject.SetActive(false);
+      _firstPlayerLose.gameObject.SetActive(false);
+      _secondPlayerLose.gameObject.SetActive(false);
 
       if (Instance == null)
         Instance = this;
@@ -43,6 +51,15 @@ namespace GameFlow
       if (CurrentStateId == GameFlowStateId.StartScreen && spacePressed)
       {
         SetToGameplay();
+      }
+
+      CurrentTurnTime += Time.deltaTime;
+      if (CurrentTurnTime > GameController.turnDuration)
+      {
+        if (CurrentPlayer == PlayerTypeId.First)
+          _firstPlayerLose.gameObject.SetActive(true);
+        if (CurrentPlayer == PlayerTypeId.Second)
+          _secondPlayerLose.gameObject.SetActive(true);
       }
     }
 
@@ -75,7 +92,6 @@ namespace GameFlow
 
     private IEnumerator PlayerReachedFinish()
     {
-      //todo simulate time НАЗАД ЕБАТЬ
       if (CurrentPlayer == PlayerTypeId.First)
         _firstPlayerFinished.gameObject.SetActive(true);
       if (CurrentPlayer == PlayerTypeId.Second)
