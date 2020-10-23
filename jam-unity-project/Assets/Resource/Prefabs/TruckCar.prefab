@@ -687,6 +687,7 @@ GameObject:
   - component: {fileID: 2915736797643965750}
   - component: {fileID: 2915736797643965751}
   - component: {fileID: 2915736797643965744}
+  - component: {fileID: 4323820810601867859}
   m_Layer: 0
   m_Name: TruckCar
   m_TagString: Player
@@ -798,6 +799,23 @@ MonoBehaviour:
   Acceleration: {x: 0, y: 0}
   AxleFront: {fileID: 0}
   AxleRear: {fileID: 0}
+--- !u!114 &4323820810601867859
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2915736797643965748}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f5fe1b24e08e264695f75ca0b566b6f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Magnitude: 1
+  Roughness: 3
+  FadeOutTime: 1
+  _fx: {fileID: 3048258472912751076, guid: f4223c2ea5bd81143890bbcef8efefba, type: 3}
+  _boomPower: 50000
 --- !u!1 &2915736797926391651
 GameObject:
   m_ObjectHideFlags: 0
