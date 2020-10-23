@@ -5,7 +5,10 @@ namespace LevelLogic
 {
   public class FinishTrigger : MonoBehaviour
   {
-    private void OnCollisionEnter2D(Collision2D other)
+    [SerializeField] private PlayerTypeId Player;
+    [SerializeField] private int index;
+
+    private void OnTriggerStay2D(Collider2D other)
     {
       if (other.transform.GetComponent<Car>() != null)
         GameFlowManager.Instance.OnFinishEnter();
