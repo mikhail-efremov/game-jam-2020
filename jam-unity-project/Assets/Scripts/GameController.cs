@@ -9,7 +9,7 @@ using UnityEngine.Serialization;
 
 public class GameController : MonoBehaviour
 {
-  public const float turnDuration = 4f;
+  public const float turnDuration = 10f;
   public const float timelapseDuration = 2f;
   public GameObject car;
   [FormerlySerializedAs("positions")] public List<Vector3> spawnPositions;
@@ -20,31 +20,24 @@ public class GameController : MonoBehaviour
   private int _gameTick;
   private bool _isTimeLapse;
 
-  public void StartWork()
+  public void GetNextCar()
   {
-    StartCoroutine(NextCarChooser());
-  }
-  private void Start() // todo: DeLETE IT
-  {
-    StartCoroutine(NextCarChooser());
+    NextCar();
   }
 
-  private IEnumerator NextCarChooser()
+  public void EnableTimeLaps()
   {
-    while (true)
-    {
-      NextCar();
-      yield return new WaitForSeconds(turnDuration);
-      _isTimeLapse = true;
-      Destroy(_cars[_currentPos].GetComponent<Car>());
-      yield return new WaitForSeconds(timelapseDuration);
-      _isTimeLapse = false;
-    }
+    _isTimeLapse = true;
+  }
+
+  public void DisableTimeLaps()
+  {
+    _isTimeLapse = false;
   }
 
   private void FixedUpdate()
   {
-    // if(ISACTION) should track only if we play and not showing some numbers 
+    // if(ISACTION) should track only if we play and not showing some numbers
     if (_isTimeLapse)
     {
       Timelapse();
@@ -91,7 +84,7 @@ public class GameController : MonoBehaviour
     var carComponent = go.GetComponent<Car>();
     carComponent.IsPlayerControlled = true;
 
-    // GameFlowManager.Instance.CurrentCar = carComponent; todo: uncomment this
+    GameFlowManager.Instance.CurrentCar = carComponent;
     _cars.Add(go);
     _carToPositions.Add(_currentPos, new List<CarPosition>());
     _gameTick = 0;

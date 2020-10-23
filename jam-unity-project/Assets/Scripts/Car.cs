@@ -92,13 +92,13 @@ public class Car : MonoBehaviour {
 
 	// Private vars
 	float HeadingAngle;
-	float AbsoluteVelocity;
+	public float AbsoluteVelocity;
 	float AngularVelocity;
 	float SteerDirection;
 	float SteerAngle;
 
-	Vector2 Velocity;
-	Vector2 Acceleration;
+	public Vector2 Velocity;
+	public Vector2 Acceleration;
 	Vector2 LocalVelocity;
 	Vector2 LocalAcceleration;
 
@@ -108,8 +108,8 @@ public class Car : MonoBehaviour {
 
 	Rigidbody2D Rigidbody2D;
 
-	Axle AxleFront;
-	Axle AxleRear;
+	public Axle AxleFront;
+	public Axle AxleRear;
 	Engine Engine;
 
 	GameObject CenterOfGravity;

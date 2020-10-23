@@ -2,6 +2,7 @@
 using DG.Tweening;
 using LevelLogic;
 using TMPro;
+using UnityEditor.SceneManagement;
 using UnityEngine;
 
 namespace GameFlow
@@ -63,7 +64,7 @@ namespace GameFlow
         CurrentCar.enabled = true;
       _tabToStartLabel.gameObject.SetActive(false);
 
-      GetComponent<GameController>().StartWork();
+      GetComponent<GameController>().GetNextCar();
     }
 
     private void SetToPlayerReachedFinish()
@@ -81,12 +82,21 @@ namespace GameFlow
       if (CurrentPlayer == PlayerTypeId.Second)
         _secondPlayerFinished.gameObject.SetActive(true);
 
+      Destroy(CurrentCar);
+      CurrentCar.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+      GetComponent<GameController>().EnableTimeLaps();
       yield return new WaitForSeconds(2);
+      GetComponent<GameController>().DisableTimeLaps();
 
       _firstPlayerFinished.gameObject.SetActive(false);
       _secondPlayerFinished.gameObject.SetActive(false);
 
-      //todo вырубаем тачку 
+      if (CurrentPlayer == PlayerTypeId.First)
+        CurrentPlayer = PlayerTypeId.Second;
+      else if (CurrentPlayer == PlayerTypeId.Second)
+        CurrentPlayer = PlayerTypeId.First;
+
+      SetToGameplay();
     }
   }
 }
