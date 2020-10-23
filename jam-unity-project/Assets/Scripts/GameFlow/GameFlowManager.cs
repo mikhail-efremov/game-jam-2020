@@ -83,7 +83,7 @@ namespace GameFlow
 
         if (CurrentTurnTime > GameController.turnDuration)
         {
-          StartCoroutine(SetPlayerLose());
+          // StartCoroutine(SetPlayerLose());
         }
       }
     }

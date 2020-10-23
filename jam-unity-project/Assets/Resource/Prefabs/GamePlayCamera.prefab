@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 4028132379399739271}
   - component: {fileID: 4028132379399739270}
   - component: {fileID: 4028132379399739323}
+  - component: {fileID: 5582028751466489291}
   m_Layer: 0
   m_Name: GamePlayCamera
   m_TagString: MainCamera
@@ -106,3 +107,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Area: {fileID: 0}
+--- !u!114 &5582028751466489291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4028132379399739269}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ab8353b5ebd32545867da143199a814, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
+  DefaultRotInfluence: {x: 1, y: 1, z: 1}
+  RestPositionOffset: {x: 3.27, y: -4.48, z: -10.24}
+  RestRotationOffset: {x: -3.76, y: 0, z: 0}
