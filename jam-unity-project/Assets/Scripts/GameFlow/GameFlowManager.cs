@@ -82,6 +82,7 @@ namespace GameFlow
       if (CurrentPlayer == PlayerTypeId.Second)
         _secondPlayerFinished.gameObject.SetActive(true);
 
+      CurrentCar.EndTrails();
       Destroy(CurrentCar);
       CurrentCar.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
       GetComponent<GameController>().EnableTimeLaps();

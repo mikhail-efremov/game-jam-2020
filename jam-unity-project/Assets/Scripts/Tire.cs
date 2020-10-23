@@ -11,25 +11,22 @@ public class Tire : MonoBehaviour {
 
 	public float Radius = 0.5f;
 
-	float TrailDuration = 5;
+	float TrailDuration = 300;
 	bool TrailActive;
 	GameObject Skidmark;
 
 	public void SetTrailActive(bool active) {
 		if (active && !TrailActive) {
 			// These should be pooled and re-used
-			Skidmark = GameObject.Instantiate (Resources.Load ("Skidmark") as GameObject);
+			Skidmark = Instantiate (Resources.Load ("Skidmark") as GameObject, transform.position, transform.rotation);
 						
 			//Fix issue where skidmarks draw at 0,0,0 at slow speeds
 			Skidmark.GetComponent<TrailRenderer>().Clear();
 			
-			Skidmark.GetComponent<TrailRenderer> ().time = TrailDuration;
 			Skidmark.GetComponent<TrailRenderer> ().sortingOrder = 0;
-			Skidmark.transform.parent = this.transform;
-			Skidmark.transform.localPosition = Vector2.zero;
+			Skidmark.transform.parent = transform;
 		} else if (!active && TrailActive) {			
 			Skidmark.transform.parent = null;
-			GameObject.Destroy (Skidmark.gameObject, TrailDuration); 
 		}
 		TrailActive = active;
 	}

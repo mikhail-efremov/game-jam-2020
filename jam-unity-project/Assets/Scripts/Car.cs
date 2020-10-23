@@ -243,6 +243,11 @@ public class Car : MonoBehaviour {
 		Engine.UpdateAutomaticTransmission (Rigidbody2D);
 	}
 
+	public void EndTrails()
+	{
+		AxleRear.TireRight.SetTrailActive (false);
+		AxleRear.TireLeft.SetTrailActive (false);
+	}
 	void FixedUpdate() {
 
 		// Update from rigidbody to retain collision responses
