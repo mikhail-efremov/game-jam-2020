@@ -1,9 +1,6 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using DefaultNamespace;
 using GameFlow;
-using TMPro;
 using UnityEngine;
 using UnityEngine.Serialization;
 
@@ -54,9 +51,6 @@ public class GameController : MonoBehaviour
 
   private void Timelapse()
   {
-    var currentCar = _cars[_currentCarIndex];
-    _carToPositions[_currentCarIndex].Add(new CarPosition(currentCar.transform.position, currentCar.transform.rotation));
-
     for (var i = 0; i < _currentCarIndex + 1; i++)
     {
       UpdatePos(i);
@@ -84,6 +78,7 @@ public class GameController : MonoBehaviour
     _cars[i].transform.position = _carToPositions[i][currentTick].position;
     _cars[i].transform.rotation = _carToPositions[i][currentTick].rotation;
   }
+
   public void NextCar()
   {
     _currentCarIndex++;
