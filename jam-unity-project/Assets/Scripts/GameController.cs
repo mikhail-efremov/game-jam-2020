@@ -6,10 +6,12 @@ using UnityEngine.Serialization;
 
 public class GameController : MonoBehaviour
 {
-  public const float turnDuration = 10f;
-  public const float timelapseDuration = 2f;
+  public const float turnDuration = 12f;
+  public const float timelapseDuration = 4f;
   public GameObject car;
   [FormerlySerializedAs("positions")] public List<Vector3> spawnPositions;
+
+  public bool TimeLapsIsActive => _isTimeLapse && _gameTick > 0;
 
   private List<GameObject> _cars = new List<GameObject>();
   private Dictionary<int, List<CarPosition>> _carToPositions = new Dictionary<int, List<CarPosition>>();
@@ -52,11 +54,9 @@ public class GameController : MonoBehaviour
   private void Timelapse()
   {
     for (var i = 0; i < _currentCarIndex + 1; i++)
-    {
       UpdatePos(i);
-    }
 
-    _gameTick-=(int)(turnDuration/timelapseDuration);
+    _gameTick -= (int)(turnDuration/timelapseDuration);
   }
 
   private void MoveStraightforward()

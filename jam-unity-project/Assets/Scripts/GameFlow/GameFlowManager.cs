@@ -53,13 +53,12 @@ namespace GameFlow
         SetToGameplay();
       }
 
-      CurrentTurnTime += Time.deltaTime;
-      if (CurrentTurnTime > GameController.turnDuration)
+      if (CurrentStateId == GameFlowStateId.Gameplay)
       {
-        if (CurrentPlayer == PlayerTypeId.First)
-          _firstPlayerLose.gameObject.SetActive(true);
-        if (CurrentPlayer == PlayerTypeId.Second)
-          _secondPlayerLose.gameObject.SetActive(true);
+        CurrentTurnTime += Time.deltaTime;
+
+        if (CurrentTurnTime > GameController.turnDuration)
+          SetPlayerLose();
       }
     }
 
@@ -90,6 +89,17 @@ namespace GameFlow
       StartCoroutine(PlayerReachedFinish());
     }
 
+    private void SetPlayerLose()
+    {
+      if (CurrentPlayer == PlayerTypeId.First)
+        _firstPlayerLose.gameObject.SetActive(true);
+      if (CurrentPlayer == PlayerTypeId.Second)
+        _secondPlayerLose.gameObject.SetActive(true);
+
+      CurrentCar.EndTrails();
+      Destroy(CurrentCar);
+    }
+
     private IEnumerator PlayerReachedFinish()
     {
       if (CurrentPlayer == PlayerTypeId.First)
@@ -101,7 +111,19 @@ namespace GameFlow
       Destroy(CurrentCar);
       CurrentCar.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
       GetComponent<GameController>().EnableTimeLaps();
-      yield return new WaitForSeconds(2);
+
+      var delayTime = 0f;
+      while (true)
+      {
+        delayTime += Time.deltaTime;
+        yield return null;
+        if (!GetComponent<GameController>().TimeLapsIsActive)
+        {
+          if (delayTime >= 2)
+            break;
+        }
+      }
+
       GetComponent<GameController>().DisableTimeLaps();
 
       _firstPlayerFinished.gameObject.SetActive(false);
