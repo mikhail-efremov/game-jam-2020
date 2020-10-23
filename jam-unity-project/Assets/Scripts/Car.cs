@@ -3,8 +3,7 @@ using System.Collections.Generic;
 
 public class Car : MonoBehaviour {
 
-	[SerializeField]
-	bool IsPlayerControlled = false;
+	public bool IsPlayerControlled;
 
 	[SerializeField]
 	[Range(0f, 1f)]
