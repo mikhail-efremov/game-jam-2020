@@ -71,7 +71,8 @@ namespace GameFlow
         CurrentTurnTime += Time.deltaTime;
 
         var timeLeft = GameController.turnDuration - CurrentTurnTime;
-        _timerText.text = timeLeft.ToString("N2").Replace(",", ".");
+
+        _timerText.text = timeLeft > 0 ? timeLeft.ToString("N2").Replace(",", ".") : "0.00";
 
         if (timeLeft < 3f && !_setTimerAlarm)
         {
