@@ -786,11 +786,11 @@ MonoBehaviour:
   RollingResistance: 8
   EBrakeGripRatioFront: 0.9
   TotalTireGripFront: 2.5
-  EBrakeGripRatioRear: 0.4
-  TotalTireGripRear: 2.5
-  SteerSpeed: 2.5
-  SteerAdjustSpeed: 1
-  SpeedSteerCorrection: 295
+  EBrakeGripRatioRear: 0.009
+  TotalTireGripRear: 5
+  SteerSpeed: 5
+  SteerAdjustSpeed: 5
+  SpeedSteerCorrection: 1000
   SpeedTurningStability: 11.8
   AxleDistanceCorrection: 1.7
 --- !u!1 &2915736797926391651
