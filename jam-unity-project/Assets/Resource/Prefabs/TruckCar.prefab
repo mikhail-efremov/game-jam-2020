@@ -26,8 +26,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1330926197669903225}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.033, z: -0.3044}
-  m_LocalScale: {x: 1.0000001, y: 2.0301094, z: 0.39114094}
+  m_LocalPosition: {x: 0, y: 1.035, z: -0.3044}
+  m_LocalScale: {x: 1.0000001, y: 4.1657186, z: 0.39114094}
   m_Children: []
   m_Father: {fileID: 2915736797643965749}
   m_RootOrder: 5
@@ -422,7 +422,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2915736797137615132}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.64, y: 0.861, z: 0}
+  m_LocalPosition: {x: -0.64, y: 2.971, z: 0}
   m_LocalScale: {x: 0.20000002, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 2915736796725491306}
@@ -619,7 +619,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2915736797635422412}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.86, z: 0}
+  m_LocalPosition: {x: 0, y: 2.97, z: 0}
   m_LocalScale: {x: 1.25, y: 0.1, z: 1}
   m_Children: []
   m_Father: {fileID: 2915736796725491306}
@@ -778,7 +778,7 @@ MonoBehaviour:
   InertiaScale: 1.5
   BrakePower: 12000
   EBrakePower: 4800
-  WeightTransfer: 0.4
+  WeightTransfer: 0.3
   MaxSteerAngle: 0.797
   CornerStiffnessFront: 5
   CornerStiffnessRear: 5.2
@@ -787,9 +787,9 @@ MonoBehaviour:
   EBrakeGripRatioFront: 0.9
   TotalTireGripFront: 2.5
   EBrakeGripRatioRear: 0.009
-  TotalTireGripRear: 3
-  SteerSpeed: 3
-  SteerAdjustSpeed: 3
+  TotalTireGripRear: 4
+  SteerSpeed: 4
+  SteerAdjustSpeed: 4
   SpeedSteerCorrection: 1000
   SpeedTurningStability: 11.8
   AxleDistanceCorrection: 1.7
@@ -951,7 +951,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2915736798156807703}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.64, y: 0.861, z: 0}
+  m_LocalPosition: {x: 0.64, y: 2.971, z: 0}
   m_LocalScale: {x: 0.20000002, y: 0.6, z: 1}
   m_Children: []
   m_Father: {fileID: 2915736796725491306}
