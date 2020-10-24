@@ -29,7 +29,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4028132379399739269}
   m_LocalRotation: {x: -0.3420201, y: 0, z: 0, w: 0.9396927}
-  m_LocalPosition: {x: -2, y: -168, z: -205}
+  m_LocalPosition: {x: 0, y: -135.4, z: -166.2}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -121,5 +121,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
   DefaultRotInfluence: {x: 1, y: 1, z: 1}
-  RestPositionOffset: {x: -2, y: -168, z: -204}
+  RestPositionOffset: {x: 0, y: -135.4, z: -166.2}
   RestRotationOffset: {x: -40, y: 0, z: 0}
