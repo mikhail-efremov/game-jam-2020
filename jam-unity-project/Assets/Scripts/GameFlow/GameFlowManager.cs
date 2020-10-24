@@ -173,6 +173,8 @@ namespace GameFlow
       CurrentCar.Outline.SetActive(false);
       CurrentCar.GetComponent<Rigidbody2D>().isKinematic = true;
       CurrentCar.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
+      Destroy(CurrentCar.GetComponent<AudioSource>());
+      Destroy(CurrentCar.transform.Find("Engine").GetComponent<AudioSource>());
       Destroy(CurrentCar);
       CurrentCar.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
       GetComponent<GameController>().EnableTimeLaps();
