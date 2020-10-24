@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 262214785}
   - component: {fileID: 262214787}
   - component: {fileID: 4015554733406940376}
+  - component: {fileID: 7589704444911662634}
   m_Layer: 5
   m_Name: FirstPlayerFinish
   m_TagString: Untagged
@@ -58,7 +59,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.36470592, b: 0.37714732, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -78,6 +79,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: FIRST PLAYER FINISHED!!!
+--- !u!114 &7589704444911662634
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 262214784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1340601491
 GameObject:
   m_ObjectHideFlags: 0
@@ -89,6 +105,7 @@ GameObject:
   - component: {fileID: 1340601492}
   - component: {fileID: 1340601494}
   - component: {fileID: 3090806802676024867}
+  - component: {fileID: 6595489651970075644}
   m_Layer: 5
   m_Name: SecondPlayerFinish
   m_TagString: Untagged
@@ -136,7 +153,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4470588, g: 0.69267994, b: 1, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -156,6 +173,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: SECOND PLAYER FINISHED!!!
+--- !u!114 &6595489651970075644
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1340601491}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1538034763
 GameObject:
   m_ObjectHideFlags: 0
@@ -204,6 +236,7 @@ GameObject:
   - component: {fileID: 1806517263}
   - component: {fileID: 1806517265}
   - component: {fileID: 7855956356643254976}
+  - component: {fileID: 5878489173907059049}
   m_Layer: 5
   m_Name: TimerText
   m_TagString: Untagged
@@ -271,6 +304,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: New Text
+--- !u!114 &5878489173907059049
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1806517262}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2085122599
 GameObject:
   m_ObjectHideFlags: 0
@@ -282,6 +330,7 @@ GameObject:
   - component: {fileID: 2085122600}
   - component: {fileID: 2085122602}
   - component: {fileID: 2085122601}
+  - component: {fileID: 65045224700089132}
   m_Layer: 5
   m_Name: Icon
   m_TagString: Untagged
@@ -345,6 +394,21 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &65045224700089132
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2085122599}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1711957229914477417
 GameObject:
   m_ObjectHideFlags: 0
@@ -356,6 +420,7 @@ GameObject:
   - component: {fileID: 4222382149432220020}
   - component: {fileID: 2116313627567463761}
   - component: {fileID: 5698537891749873412}
+  - component: {fileID: 873147523560586879}
   m_Layer: 5
   m_Name: SecondPlayerLose
   m_TagString: Untagged
@@ -403,7 +468,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.3647059, b: 0.3764706, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -422,7 +487,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: SECOND PLAYER LOSE!
+  m_Text: FIRST PLAYER WIN!!!!
+--- !u!114 &873147523560586879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1711957229914477417}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1738783623596280866
 GameObject:
   m_ObjectHideFlags: 0
@@ -434,6 +514,7 @@ GameObject:
   - component: {fileID: 1313302570403349687}
   - component: {fileID: 6088401260752373249}
   - component: {fileID: 2641023984799059712}
+  - component: {fileID: 5990650828964398112}
   m_Layer: 5
   m_Name: FirstPlayerTurn
   m_TagString: Untagged
@@ -481,7 +562,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 0.36470592, b: 0.37714732, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -501,6 +582,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: FIRST PLAYER TURN
+--- !u!114 &5990650828964398112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1738783623596280866}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &2202843175701882527
 GameObject:
   m_ObjectHideFlags: 0
@@ -512,6 +608,7 @@ GameObject:
   - component: {fileID: 6983595088362575318}
   - component: {fileID: 9191312779028657526}
   - component: {fileID: 6978666202126669435}
+  - component: {fileID: 1578683477851634758}
   m_Layer: 5
   m_Name: SecondPlayerTurn
   m_TagString: Untagged
@@ -559,7 +656,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.4470588, g: 0.69267994, b: 1, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -579,6 +676,21 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: SECOND PLAYER TURN
+--- !u!114 &1578683477851634758
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2202843175701882527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &3248663878748795406
 GameObject:
   m_ObjectHideFlags: 0
@@ -590,6 +702,7 @@ GameObject:
   - component: {fileID: 8542673265150312960}
   - component: {fileID: 6341739662623907091}
   - component: {fileID: 2002431690285269842}
+  - component: {fileID: 2932459059911742496}
   m_Layer: 5
   m_Name: FirstPlayerLose
   m_TagString: Untagged
@@ -637,7 +750,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 0.44705883, g: 0.69411767, b: 1, a: 1}
   m_RaycastTarget: 0
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -656,7 +769,22 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: FIRST PLAYER LOSE!
+  m_Text: SECOND PLAYER WIN!!!
+--- !u!114 &2932459059911742496
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3248663878748795406}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1
 --- !u!1 &5518049033208712608
 GameObject:
   m_ObjectHideFlags: 0
@@ -774,6 +902,7 @@ GameObject:
   - component: {fileID: 5518049033256016821}
   - component: {fileID: 5518049033256016823}
   - component: {fileID: 2731929400441471926}
+  - component: {fileID: 5085159118859167671}
   m_Layer: 5
   m_Name: TabSpaceToStart
   m_TagString: Untagged
@@ -841,3 +970,18 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: TAB SPACE TO START
+--- !u!114 &5085159118859167671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5518049033256016820}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 0, g: 0, b: 0, a: 0.5}
+  m_EffectDistance: {x: 1, y: -1}
+  m_UseGraphicAlpha: 1

@@ -12,6 +12,9 @@ namespace GameFlow
   public class GameFlowManager : MonoBehaviour
   {
     public Car CurrentCar;
+
+    [SerializeField] private GameObject _confetty;
+    
     [SerializeField] private Image _timerIcon;
     [SerializeField] private Text _timerText;
 
@@ -37,6 +40,7 @@ namespace GameFlow
     private float CurrentTurnTime;
 
     private bool _setTimerAlarm = false;
+    private bool _disableSpace = false;
 
     public void OnFinishEnter()
     {
@@ -71,7 +75,12 @@ namespace GameFlow
       var spacePressed = Input.GetKeyDown(KeyCode.Space);
 
       if (CurrentStateId == GameFlowStateId.StartScreen && spacePressed)
-        StartCoroutine(SetToPlayerAnnouncement());
+      {
+        if (!_disableSpace)
+          StartCoroutine(SetToPlayerAnnouncement());
+        
+        _disableSpace = true;
+      }
 
       if (CurrentStateId == GameFlowStateId.Gameplay)
       {
@@ -117,6 +126,7 @@ namespace GameFlow
       GetComponent<GameController>().GetNextCar();
       var finish = Finishes.Find(x => x.Index == GetComponent<GameController>().CurrentCarIndex + 1);
       finish.gameObject.SetActive(true);
+      _disableSpace = false;
     }
 
     private void DisableFinishes()
@@ -141,6 +151,8 @@ namespace GameFlow
         _firstPlayerLose.gameObject.SetActive(true);
       if (CurrentPlayer == PlayerTypeId.Second)
         _secondPlayerLose.gameObject.SetActive(true);
+      
+      _confetty.SetActive(true);
 
       CurrentCar.EndTrails();
       Destroy(CurrentCar);
