@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
 using GameFlow;
@@ -22,10 +23,12 @@ public class GameController : MonoBehaviour
 
   public void StartController()
   {
-    if (_isActive)
-      return;
-
     _isActive = true;
+  }
+
+  public void StopController()
+  {
+    _isActive = false;
   }
 
   public void GetNextCar()

@@ -169,6 +169,7 @@ namespace GameFlow
         yield return null;
         if (!GetComponent<GameController>().TimeLapsIsActive)
         {
+          GetComponent<GameController>().StopController();
           if (delayTime >= 2)
             break;
         }
