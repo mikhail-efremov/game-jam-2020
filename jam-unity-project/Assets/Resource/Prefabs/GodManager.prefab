@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentCar: {fileID: 0}
   _backMusic: {fileID: 4901413065154677932}
+  _reachPointSound: {fileID: 8300000, guid: 098eca5123a0bc849a3bef4f2ba30f5b, type: 3}
+  _winSound: {fileID: 8300000, guid: 3d889c8ad0658644b86333d78aa22f8f, type: 3}
   _confetty: {fileID: 2042231524679609757}
   _timerIcon: {fileID: 0}
   _timerText: {fileID: 0}
