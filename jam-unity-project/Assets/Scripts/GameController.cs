@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour
   private int _gameTick;
   private bool _isTimeLapse;
   private bool _isActive;
+  private static readonly int ColorRed = Shader.PropertyToID("_ColorRed");
 
   public void StartController()
   {
@@ -115,7 +116,7 @@ public class GameController : MonoBehaviour
     if (car.Mesh != null)
     {
       var meshMaterial = Instantiate(car.Mesh.sharedMaterial);
-      meshMaterial.SetColor("_ColorRed", playerColor);
+      meshMaterial.SetColor(ColorRed, playerColor);
       car.Mesh.material = meshMaterial;
     }
   }
