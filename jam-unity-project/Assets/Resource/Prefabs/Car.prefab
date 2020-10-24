@@ -1455,7 +1455,7 @@ MonoBehaviour:
   SteerSpeed: 5
   SteerAdjustSpeed: 5
   SpeedSteerCorrection: 1000
-  SpeedTurningStability: 11.8
+  SpeedTurningStability: 14
   AxleDistanceCorrection: 1.7
   AbsoluteVelocity: 0
   Velocity: {x: 0, y: 0}
