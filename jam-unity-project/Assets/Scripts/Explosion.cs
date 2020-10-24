@@ -1,7 +1,4 @@
-﻿using System;
-using System.Collections;
-using System.Collections.Generic;
-using EZCameraShake;
+﻿using EZCameraShake;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
@@ -9,6 +6,10 @@ public class Explosion : MonoBehaviour
   public float Magnitude = 2f;
   public float Roughness = 10f;
   public float FadeOutTime = 1f;
+  public float FxCooldownSecond = .2f;
+
+  private float _lastBoomTime;
+  
   [SerializeField] private GameObject _fx;
   [SerializeField] private float _boomPower;
 
@@ -28,6 +29,11 @@ public class Explosion : MonoBehaviour
 
   private void Boom(Collision2D collision)
   {
+    if (Time.time - _lastBoomTime < FxCooldownSecond)
+      return;
+    
+    _lastBoomTime = Time.time;
+    
     Instantiate(_fx, transform.position, Quaternion.identity);
     _rigidbody.AddForce(collision.contacts[0].normal * _boomPower, ForceMode2D.Impulse);
     CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);

@@ -900,7 +900,7 @@ MonoBehaviour:
   Magnitude: 1
   Roughness: 3
   FadeOutTime: 1
-  _fx: {fileID: 3048258472912751076, guid: f4223c2ea5bd81143890bbcef8efefba, type: 3}
+  _fx: {fileID: 7367841680630402474, guid: 48552249cdb509a489ca729d89716151, type: 3}
   _boomPower: 50000
 --- !u!1 &2915736797926391651
 GameObject:
