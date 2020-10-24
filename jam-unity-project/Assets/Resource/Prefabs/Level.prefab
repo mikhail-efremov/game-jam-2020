@@ -3141,8 +3141,8 @@ Light:
   serializedVersion: 10
   m_Type: 1
   m_Shape: 0
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Color: {r: 0.990566, g: 0.9239358, b: 0.85506403, a: 1}
+  m_Intensity: 1.7
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3878,6 +3878,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 9020046110276485233}
     m_Modifications:
+    - target: {fileID: 919132149155446097, guid: 238e8c087740bb4459fb6b9d4e68ccc0,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 14ea40209d1d7fe4c8bd5b8806b541f6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3962,11 +3967,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: BuildingResident4 (2)
-      objectReference: {fileID: 0}
-    - target: {fileID: 919132149155446097, guid: 238e8c087740bb4459fb6b9d4e68ccc0,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 14ea40209d1d7fe4c8bd5b8806b541f6, type: 3}
