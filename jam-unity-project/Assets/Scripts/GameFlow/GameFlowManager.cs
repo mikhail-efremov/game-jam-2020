@@ -108,6 +108,7 @@ namespace GameFlow
 
         if (CurrentTurnTime > GameController.turnDuration && !_startLose)
         {
+          return;
           _startLose = true;
           StartCoroutine(SetPlayerLose());
         }
