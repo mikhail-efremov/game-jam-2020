@@ -1,7 +1,10 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class Car : MonoBehaviour {
+public class Car : MonoBehaviour
+{
+
+	public GameObject Outline;
 
 	public bool IsPlayerControlled;
 

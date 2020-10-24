@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using DG.Tweening;
 using LevelLogic;
-using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
@@ -158,6 +157,8 @@ namespace GameFlow
         _secondPlayerFinished.gameObject.SetActive(true);
 
       CurrentCar.EndTrails();
+
+      CurrentCar.Outline.SetActive(false);
       Destroy(CurrentCar);
       CurrentCar.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
       GetComponent<GameController>().EnableTimeLaps();

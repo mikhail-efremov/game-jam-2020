@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Linq;
 using DefaultNamespace;
 using GameFlow;
@@ -99,5 +98,7 @@ public class GameController : MonoBehaviour
     _cars.Add(go.gameObject);
     _carToPositions.Add(CurrentCarIndex, new List<CarPosition>());
     _gameTick = 0;
+
+    _cars[CurrentCarIndex].GetComponent<Car>().Outline.SetActive(true);
   }
 }
