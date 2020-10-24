@@ -280,7 +280,7 @@ public class Car : MonoBehaviour
 		CenterOfGravity.transform.localPosition = Vector2.Lerp (CenterOfGravity.transform.localPosition, pos, 0.1f);
 
 		// Skidmarks
-		if (Mathf.Abs (LocalAcceleration.y) > 18 || EBrake == 1)
+		if (Mathf.Abs (LocalAcceleration.y) > 18 || (EBrake == 1 && LocalAcceleration.y!=0)  )
 		{
 			TrailSound(true);
 			AxleRear.TireRight.SetTrailActive (true);
