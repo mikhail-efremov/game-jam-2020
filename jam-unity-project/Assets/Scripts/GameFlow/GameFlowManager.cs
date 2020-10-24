@@ -186,6 +186,7 @@ namespace GameFlow
       Destroy(CurrentCar.GetComponent<AudioSource>());
       Destroy(CurrentCar.transform.Find("Engine").GetComponent<AudioSource>());
       Destroy(CurrentCar);
+      TurnBackWheels(CurrentCar);
       CurrentCar.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
       GetComponent<GameController>().EnableTimeLaps();
 
@@ -219,6 +220,13 @@ namespace GameFlow
         CurrentPlayer = PlayerTypeId.First;
 
       StartCoroutine(SetToPlayerAnnouncement());
+    }
+
+    private void TurnBackWheels(Car car)
+    {
+      var axle = car.transform.Find("AxleFront");
+      axle.Find("TireRight").transform.localRotation = Quaternion.identity;;
+      axle.Find("TireLeft").transform.localRotation = Quaternion.identity;;
     }
 
     private IEnumerator SetToPlayerAnnouncement()
