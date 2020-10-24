@@ -121,33 +121,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &555912472 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 608074024, guid: 438bcef5da772624da1e0cd619024474,
-    type: 3}
-  m_PrefabInstance: {fileID: 6977741376695035711}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &555912473
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 555912472}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 3
 --- !u!1001 &702651113
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -357,33 +330,6 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 702651113}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &791777736 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2022123379, guid: 438bcef5da772624da1e0cd619024474,
-    type: 3}
-  m_PrefabInstance: {fileID: 6977741376695035711}
-  m_PrefabAsset: {fileID: 0}
---- !u!50 &791777737
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 791777736}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 1
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 3
 --- !u!1001 &1532025047
 PrefabInstance:
   m_ObjectHideFlags: 0
