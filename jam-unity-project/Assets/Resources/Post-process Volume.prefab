@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3848239052203207718}
   - component: {fileID: 7486247957975609365}
   - component: {fileID: 1424903228051743021}
-  m_Layer: 0
+  m_Layer: 26
   m_Name: Post-process Volume
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -58,7 +58,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sharedProfile: {fileID: 11400000, guid: dad406a552ff9484babded22441cdb79, type: 2}
-  isGlobal: 0
+  isGlobal: 1
   blendDistance: 0
   weight: 1
   priority: 0
