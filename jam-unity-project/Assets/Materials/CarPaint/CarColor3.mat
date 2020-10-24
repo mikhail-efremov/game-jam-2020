@@ -89,9 +89,9 @@ Material:
     m_Colors:
     - _Color: {r: 1, g: 1, b: 1, a: 1}
     - _ColorB: {r: 0, g: 0, b: 0, a: 0}
-    - _ColorBlue: {r: 0.18431373, g: 0.105882354, b: 0.12148453, a: 0}
+    - _ColorBlue: {r: 1, g: 1, b: 1, a: 0}
     - _ColorG: {r: 0, g: 0, b: 0, a: 0}
-    - _ColorGreen: {r: 0.504717, g: 0.9175266, b: 1, a: 0}
+    - _ColorGreen: {r: 0, g: 1, b: 0.13257027, a: 0}
     - _ColorR: {r: 0, g: 0, b: 0, a: 0}
     - _ColorRed: {r: 1, g: 0.18196456, b: 0, a: 0}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
