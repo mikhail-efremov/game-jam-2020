@@ -6,8 +6,8 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-  public const float turnDuration = 12f;
-  public const float timelapseDuration = 4f;
+  public const float turnDuration = 15f;
+  public const float timelapseDuration = 5f;
   public int CurrentCarIndex = -1;
 
   [SerializeField] private Car[] Cars;
