@@ -1731,16 +1731,16 @@ MonoBehaviour:
   CGHeight: 0.8
   InertiaScale: 1
   BrakePower: 12000
-  EBrakePower: 4800
-  WeightTransfer: 0.4
-  MaxSteerAngle: 0.797
+  EBrakePower: 12000
+  WeightTransfer: 0.24
+  MaxSteerAngle: 1
   CornerStiffnessFront: 5
   CornerStiffnessRear: 5.2
   AirResistance: 2.5
   RollingResistance: 8
-  EBrakeGripRatioFront: 0.9
+  EBrakeGripRatioFront: 1
   TotalTireGripFront: 2.5
-  EBrakeGripRatioRear: 0.009
+  EBrakeGripRatioRear: 0.6
   TotalTireGripRear: 5
   SteerSpeed: 5
   SteerAdjustSpeed: 5

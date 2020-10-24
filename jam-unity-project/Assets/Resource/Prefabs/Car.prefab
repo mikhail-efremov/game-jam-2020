@@ -1448,9 +1448,9 @@ MonoBehaviour:
   CornerStiffnessRear: 5.2
   AirResistance: 2.5
   RollingResistance: 8
-  EBrakeGripRatioFront: 0.9
+  EBrakeGripRatioFront: 1
   TotalTireGripFront: 2.5
-  EBrakeGripRatioRear: 0.009
+  EBrakeGripRatioRear: 0.4
   TotalTireGripRear: 5
   SteerSpeed: 5
   SteerAdjustSpeed: 5
