@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using UnityEngine;
 using System.Collections.Generic;
 
 public class Car : MonoBehaviour
@@ -158,6 +159,49 @@ public class Car : MonoBehaviour
 		TrackWidth = Vector2.Distance(AxleRear.TireLeft.transform.position, AxleRear.TireRight.transform.position);
 	}
 
+	private float _activationTime;
+	private bool _isEngineSound;
+	private void EngineSound(bool active)
+	{
+		if(Time.time<_activationTime)
+			return;
+		if(_isEngineSound == active)
+			return;
+		_isEngineSound = active;
+		_activationTime = Time.time + 0.5f;
+		if (active)
+			StartCoroutine(EnableSound(transform.Find("Engine").GetComponent<AudioSource>()));
+		else
+			StartCoroutine(DisableSound(transform.Find("Engine").GetComponent<AudioSource>()));
+	}
+
+	private IEnumerator EnableSound(AudioSource audio)
+	{
+		const float maxVol = 0.2f;
+		var startTime = Time.time;
+		var duration = 0.5f;
+		audio.Play();
+		audio.volume = 0;
+		while (Time.time < startTime + duration)
+		{
+			audio.volume += maxVol / (duration/0.03f);
+			yield return new WaitForSeconds(0.03f);
+		}
+	}
+	
+	private IEnumerator DisableSound(AudioSource audio)
+	{
+		const float maxVol = 0.2f;
+		var startTime = Time.time;
+		var duration = 0.5f;
+		while (Time.time < startTime + duration)
+		{
+			audio.volume -= maxVol / (duration/0.03f);
+			yield return new WaitForSeconds(0.03f);
+		}
+		audio.Play();
+	}
+
 	void Update() {
 
 		if (IsPlayerControlled) {
@@ -173,6 +217,8 @@ public class Car : MonoBehaviour
 				//Brake = 1;
 				Throttle = -1;
 			}
+			EngineSound(Throttle!=0);
+
 			if(Input.GetKey(KeyCode.Space))	{
 				EBrake = 1;
 			}

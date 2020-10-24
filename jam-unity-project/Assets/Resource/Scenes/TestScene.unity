@@ -176,7 +176,7 @@ PrefabInstance:
     - target: {fileID: 2915736797643965749, guid: 1b44e2d8f5406ff48805e26e22f65f1c,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 2915736797643965749, guid: 1b44e2d8f5406ff48805e26e22f65f1c,
         type: 3}
@@ -205,7 +205,7 @@ PrefabInstance:
     - target: {fileID: 2915736797643965744, guid: 3c82322ef82006e43bf175ae0d049f90,
         type: 3}
       propertyPath: IsPlayerControlled
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2915736797643965748, guid: 3c82322ef82006e43bf175ae0d049f90,
         type: 3}
@@ -250,7 +250,7 @@ PrefabInstance:
     - target: {fileID: 2915736797643965749, guid: 3c82322ef82006e43bf175ae0d049f90,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2915736797643965749, guid: 3c82322ef82006e43bf175ae0d049f90,
         type: 3}
