@@ -48,6 +48,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   CurrentCar: {fileID: 0}
   _backMusic: {fileID: 4901413065154677932}
+  _reachPointSound: {fileID: 8300000, guid: 098eca5123a0bc849a3bef4f2ba30f5b, type: 3}
+  _winSound: {fileID: 8300000, guid: 3d889c8ad0658644b86333d78aa22f8f, type: 3}
   _confetty: {fileID: 2042231524679609757}
   _timerIcon: {fileID: 0}
   _timerText: {fileID: 0}
@@ -201,6 +203,41 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2042231524130587140, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.scalar
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042231524130587140, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
+        type: 3}
+      propertyPath: InitialModule.startSpeed.minScalar
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042231524130587140, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
+        type: 3}
+      propertyPath: EmissionModule.m_Bursts.Array.data[0].countCurve.scalar
+      value: 450
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042231524130587140, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
+        type: 3}
+      propertyPath: VelocityModule.x.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042231524130587140, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
+        type: 3}
+      propertyPath: VelocityModule.y.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042231524130587140, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
+        type: 3}
+      propertyPath: VelocityModule.z.minMaxState
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2042231524130587140, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
+        type: 3}
+      propertyPath: VelocityModule.z.minScalar
+      value: -2
+      objectReference: {fileID: 0}
     - target: {fileID: 2042231524130587141, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -209,7 +246,7 @@ PrefabInstance:
     - target: {fileID: 2042231524130587141, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 19.7
       objectReference: {fileID: 0}
     - target: {fileID: 2042231524130587141, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
         type: 3}
@@ -219,7 +256,7 @@ PrefabInstance:
     - target: {fileID: 2042231524130587141, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -1
+      value: -0.71202594
       objectReference: {fileID: 0}
     - target: {fileID: 2042231524130587141, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
         type: 3}
@@ -234,7 +271,7 @@ PrefabInstance:
     - target: {fileID: 2042231524130587141, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
         type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0
+      value: 0.70215315
       objectReference: {fileID: 0}
     - target: {fileID: 2042231524130587141, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
         type: 3}
@@ -244,7 +281,7 @@ PrefabInstance:
     - target: {fileID: 2042231524130587141, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
-      value: -180
+      value: -90.8
       objectReference: {fileID: 0}
     - target: {fileID: 2042231524130587141, guid: 2cfcf60e3f5b9ce44aef91e73209e061,
         type: 3}

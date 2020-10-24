@@ -4,6 +4,7 @@ using System.Linq;
 using DG.Tweening;
 using LevelLogic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,6 +15,9 @@ namespace GameFlow
     public Car CurrentCar;
 
     [SerializeField] private AudioSource _backMusic;
+    [SerializeField] private AudioSource _winMusic;
+    [SerializeField] private AudioClip _reachPointSound;
+    [SerializeField] private AudioClip _winSound;
     
     [SerializeField] private GameObject _confetty;
     
@@ -43,6 +47,7 @@ namespace GameFlow
 
     private bool _setTimerAlarm = false;
     private bool _disableSpace = false;
+    private bool _startLose;
 
     public void OnFinishEnter()
     {
@@ -101,8 +106,9 @@ namespace GameFlow
           _timerText.DOFade(0.0f, .2f).SetEase(Ease.Flash).SetLoops(-1, LoopType.Yoyo);
         }
 
-        if (CurrentTurnTime > GameController.turnDuration)
+        if (CurrentTurnTime > GameController.turnDuration && !_startLose)
         {
+          _startLose = true;
           StartCoroutine(SetPlayerLose());
         }
       }
@@ -142,6 +148,8 @@ namespace GameFlow
       CurrentTurnTime = 0;
 
       StartCoroutine(PlayerReachedFinish());
+      _winMusic.clip = _reachPointSound;
+      _winMusic.Play();
     }
 
     private IEnumerator SetPlayerLose()
@@ -152,10 +160,13 @@ namespace GameFlow
         _secondPlayerLose.gameObject.SetActive(true);
       
       _confetty.SetActive(true);
-
+      Debug.Log("Loss");
+      _winMusic.clip = _winSound;
+      _winMusic.Play();
+      
       CurrentCar.EndTrails();
       Destroy(CurrentCar);
-      yield return new WaitForSeconds(2);
+      yield return new WaitForSeconds(4);
 
       SceneManager.LoadScene(0);
     }
@@ -217,7 +228,7 @@ namespace GameFlow
       CurrentCar.IsPlayerControlled = false;
       
       DisableFinishes();
-      
+
       var finish = Finishes.Find(x => x.Index == GetComponent<GameController>().CurrentCarIndex + 1);
       finish.gameObject.SetActive(true);
 
