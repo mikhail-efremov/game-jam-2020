@@ -22,6 +22,9 @@ public class GameController : MonoBehaviour
 
   public void StartController()
   {
+    if (_isActive)
+      return;
+
     _isActive = true;
   }
 
@@ -44,15 +47,11 @@ public class GameController : MonoBehaviour
   {
     if(!_isActive)
       return;
-    // if(ISACTION) should track only if we play and not showing some numbers
+
     if (_isTimeLapse)
-    {
       Timelapse();
-    }
     else
-    {
       MoveStraightforward();
-    }
   }
 
   private void Timelapse()

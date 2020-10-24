@@ -72,10 +72,7 @@ namespace GameFlow
       var spacePressed = Input.GetKeyDown(KeyCode.Space);
 
       if (CurrentStateId == GameFlowStateId.StartScreen && spacePressed)
-      {
-        SetToGameplay();
-        GetComponent<GameController>().StartController();
-      }
+        StartCoroutine(SetToPlayerAnnouncement());
 
       if (CurrentStateId == GameFlowStateId.Gameplay)
       {
@@ -117,7 +114,6 @@ namespace GameFlow
 
       if (CurrentCar != null)
         CurrentCar.enabled = true;
-      _tabToStartLabel.gameObject.SetActive(false);
 
       GetComponent<GameController>().GetNextCar();
       var finish = Finishes.Find(x => x.Index == GetComponent<GameController>().CurrentCarIndex + 1);
@@ -187,13 +183,28 @@ namespace GameFlow
         CurrentPlayer = PlayerTypeId.Second;
       else if (CurrentPlayer == PlayerTypeId.Second)
         CurrentPlayer = PlayerTypeId.First;
-      
-      SetToPlayerAnnouncement();
+
+      StartCoroutine(SetToPlayerAnnouncement());
     }
 
-    private void SetToPlayerAnnouncement()
+    private IEnumerator SetToPlayerAnnouncement()
     {
+      _tabToStartLabel.gameObject.SetActive(false);
+
+      if (CurrentPlayer == PlayerTypeId.First)
+        _firstPlayerTurn.gameObject.SetActive(true);
+      if (CurrentPlayer == PlayerTypeId.Second)
+        _secondPlayerTurn.gameObject.SetActive(true);
+
+      yield return new WaitForSeconds(1f);
+
+      _firstPlayerTurn.gameObject.SetActive(false);
+      _secondPlayerTurn.gameObject.SetActive(false);
+
       SetToGameplay();
+      GetComponent<GameController>().StartController();
+
+      yield break;
     }
   }
 }
