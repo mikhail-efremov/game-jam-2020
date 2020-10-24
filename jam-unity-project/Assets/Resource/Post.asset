@@ -61,20 +61,20 @@ MonoBehaviour:
     overrideState: 1
     value: {r: 1, g: 1, b: 1, a: 1}
   hueShift:
-    overrideState: 0
+    overrideState: 1
     value: 0
   saturation:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 35
   brightness:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 10
   postExposure:
     overrideState: 0
     value: 0
   contrast:
-    overrideState: 0
-    value: 0
+    overrideState: 1
+    value: 5
   mixerRedOutRedIn:
     overrideState: 0
     value: 100
@@ -104,7 +104,7 @@ MonoBehaviour:
     value: 100
   lift:
     overrideState: 0
-    value: {x: 1, y: 1, z: 1, w: 0}
+    value: {x: 0.92541325, y: 0.9728982, z: 1, w: 0}
   gamma:
     overrideState: 0
     value: {x: 1, y: 1, z: 1, w: 0}
@@ -1329,7 +1329,7 @@ MonoBehaviour:
     value: 1
   intensity:
     overrideState: 1
-    value: 2
+    value: 7
   threshold:
     overrideState: 0
     value: 1
@@ -1341,7 +1341,7 @@ MonoBehaviour:
     value: 65472
   diffusion:
     overrideState: 1
-    value: 7.14
+    value: 5
   anamorphicRatio:
     overrideState: 0
     value: -0.09
@@ -1423,16 +1423,16 @@ MonoBehaviour:
     value: 0
   color:
     overrideState: 1
-    value: {r: 0, g: 0, b: 0, a: 1}
+    value: {r: 1, g: 0, b: 0, a: 1}
   center:
     overrideState: 1
     value: {x: 0.5, y: 0.5}
   intensity:
     overrideState: 1
-    value: 0.296
+    value: 0.584
   smoothness:
     overrideState: 1
-    value: 0.55
+    value: 0.832
   roundness:
     overrideState: 1
     value: 1
@@ -1458,16 +1458,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9b77c5407dc277943b591ade9e6b18c5, type: 3}
   m_Name: LensDistortion
   m_EditorClassIdentifier: 
-  active: 1
+  active: 0
   enabled:
     overrideState: 1
     value: 0
   intensity:
     overrideState: 1
-    value: 1
+    value: 37
   intensityX:
-    overrideState: 0
-    value: 1
+    overrideState: 1
+    value: 0.384
   intensityY:
     overrideState: 0
     value: 1
