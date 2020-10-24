@@ -89,7 +89,7 @@ namespace GameFlow
         }
 
         if (CurrentTurnTime > GameController.turnDuration)
-        {
+        {return;
           StartCoroutine(SetPlayerLose());
         }
       }
@@ -159,6 +159,8 @@ namespace GameFlow
       CurrentCar.EndTrails();
 
       CurrentCar.Outline.SetActive(false);
+      CurrentCar.GetComponent<Rigidbody2D>().isKinematic = true;
+      CurrentCar.GetComponent<Rigidbody2D>().useFullKinematicContacts = true;
       Destroy(CurrentCar);
       CurrentCar.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
       GetComponent<GameController>().EnableTimeLaps();

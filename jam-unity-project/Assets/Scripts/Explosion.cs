@@ -35,7 +35,8 @@ public class Explosion : MonoBehaviour
     _lastBoomTime = Time.time;
     
     Instantiate(_fx, transform.position, Quaternion.identity);
-    _rigidbody.AddForce(collision.contacts[0].normal * _boomPower, ForceMode2D.Impulse);
+    if (!_rigidbody.isKinematic)
+      _rigidbody.AddForce(collision.contacts[0].normal * _boomPower, ForceMode2D.Impulse);
     CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);
   }
 }
