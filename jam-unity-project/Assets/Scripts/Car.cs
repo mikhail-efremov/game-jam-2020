@@ -234,10 +234,13 @@ public class Car : MonoBehaviour
 		CenterOfGravity.transform.localPosition = Vector2.Lerp (CenterOfGravity.transform.localPosition, pos, 0.1f);
 
 		// Skidmarks
-		if (Mathf.Abs (LocalAcceleration.y) > 18 || EBrake == 1) {
+		if (Mathf.Abs (LocalAcceleration.y) > 18 || EBrake == 1)
+		{
+			TrailSound(true);
 			AxleRear.TireRight.SetTrailActive (true);
 			AxleRear.TireLeft.SetTrailActive (true);
 		} else {
+			TrailSound(false);
 			AxleRear.TireRight.SetTrailActive (false);
 			AxleRear.TireLeft.SetTrailActive (false);
 		}
@@ -261,6 +264,18 @@ public class Car : MonoBehaviour
 
 		// Automatic transmission
 		Engine.UpdateAutomaticTransmission (Rigidbody2D);
+	}
+
+	private bool _isTrailSound;
+	private void TrailSound(bool active)
+	{
+		if(_isTrailSound == active)
+			return;
+		_isTrailSound = active;
+		if(active)
+			GetComponent<AudioSource>().Play();
+		else
+			GetComponent<AudioSource>().Stop();
 	}
 
 	public void EndTrails()
