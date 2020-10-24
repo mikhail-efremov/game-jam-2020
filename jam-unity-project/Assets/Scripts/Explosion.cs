@@ -14,6 +14,7 @@ public class Explosion : MonoBehaviour
   
   [SerializeField] private GameObject _fx;
   [SerializeField] private float _boomPower;
+  [SerializeField] private float _boomPowerBarrel;
 
   private IEnumerator _routine;
 
@@ -30,6 +31,11 @@ public class Explosion : MonoBehaviour
       StartCoroutine(BlockInput());
       Boom(other);
     }
+    if (other.collider.CompareTag("Barrel"))
+    {
+      StartCoroutine(BlockInput());
+      BoomBarrel(other);
+    }
   }
 
   private void Boom(Collision2D collision)
@@ -42,6 +48,19 @@ public class Explosion : MonoBehaviour
     Instantiate(_fx, transform.position, Quaternion.identity);
     if (!_rigidbody.isKinematic)
       _rigidbody.AddForce(collision.contacts[0].normal * _boomPower, ForceMode2D.Impulse);
+    CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);
+  }
+  
+  private void BoomBarrel(Collision2D collision)
+  {
+    if (Time.time - _lastBoomTime < FxCooldownSecond)
+      return;
+    
+    _lastBoomTime = Time.time;
+    
+    Instantiate(_fx, transform.position, Quaternion.identity);
+    if (!_rigidbody.isKinematic)
+      _rigidbody.AddForce(collision.contacts[0].normal * _boomPowerBarrel, ForceMode2D.Impulse);
     CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);
   }
 

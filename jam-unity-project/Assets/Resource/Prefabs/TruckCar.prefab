@@ -1004,6 +1004,7 @@ MonoBehaviour:
   FxCooldownSecond: 0.2
   _fx: {fileID: 7367841680630402474, guid: 48552249cdb509a489ca729d89716151, type: 3}
   _boomPower: 50000
+  _boomPowerBarrel: 70000
 --- !u!82 &6169390382264516556
 AudioSource:
   m_ObjectHideFlags: 0
