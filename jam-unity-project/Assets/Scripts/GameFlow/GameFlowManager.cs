@@ -4,6 +4,7 @@ using System.Linq;
 using DG.Tweening;
 using LevelLogic;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -227,7 +228,7 @@ namespace GameFlow
       CurrentCar.IsPlayerControlled = false;
       
       DisableFinishes();
-      
+
       var finish = Finishes.Find(x => x.Index == GetComponent<GameController>().CurrentCarIndex + 1);
       finish.gameObject.SetActive(true);
 

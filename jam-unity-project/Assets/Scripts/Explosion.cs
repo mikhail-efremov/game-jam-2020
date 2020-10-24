@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using EZCameraShake;
 using UnityEngine;
+using UnityEngine.Rendering.PostProcessing;
 
 public class Explosion : MonoBehaviour
 {
@@ -13,6 +14,8 @@ public class Explosion : MonoBehaviour
   
   [SerializeField] private GameObject _fx;
   [SerializeField] private float _boomPower;
+
+  private IEnumerator _routine;
 
   private Rigidbody2D _rigidbody;
   private void Start()
@@ -47,10 +50,35 @@ public class Explosion : MonoBehaviour
     var car = GetComponent<Car>();
     if (car == null)
       yield break;
-    
+
+    var time = 1.5f;
+
     car.IsPlayerControlled = false;
     car.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
-    yield return new WaitForSeconds(1.5f);
+
+    if (_routine != null)
+    {
+      StopCoroutine(_routine);
+      _routine = null;
+    }
+
+    _routine = TweekHromAbberations(time);
+    StartCoroutine(_routine);
+    yield return new WaitForSeconds(time);
     car.IsPlayerControlled = true;
+  }
+
+  private IEnumerator TweekHromAbberations(float time)
+  {
+    var p = FindObjectOfType<PostProcessVolume>();
+    p.profile.TryGetSettings(out ChromaticAberration myChromaticAberration);
+    myChromaticAberration.intensity.Override(1f);
+
+    var startTime = Time.time;
+    while (Time.time < startTime + time)
+    {
+      myChromaticAberration.intensity.Override(1f - (Time.time - startTime) / time);
+      yield return null;
+    }
   }
 }
