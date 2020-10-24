@@ -444,6 +444,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 146899059, guid: 2c006ffb812095f49920b03efbda01eb, type: 3}
+      propertyPath: _winMusic
+      value: 
+      objectReference: {fileID: 702651121}
+    - target: {fileID: 146899059, guid: 2c006ffb812095f49920b03efbda01eb, type: 3}
       propertyPath: _timerIcon
       value: 
       objectReference: {fileID: 2085122601}
@@ -479,10 +483,6 @@ PrefabInstance:
       propertyPath: _secondPlayerLose
       value: 
       objectReference: {fileID: 702651115}
-    - target: {fileID: 146899059, guid: 2c006ffb812095f49920b03efbda01eb, type: 3}
-      propertyPath: _winMusic
-      value: 
-      objectReference: {fileID: 702651121}
     - target: {fileID: 8126970907027706050, guid: 2c006ffb812095f49920b03efbda01eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -739,46 +739,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 2015143610568659079, guid: afb25906a350a75479da8b3117a0c093,
-        type: 3}
-      propertyPath: ColorModule.enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4922570421039108524, guid: afb25906a350a75479da8b3117a0c093,
-        type: 3}
-      propertyPath: ColorModule.enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4922570421039108524, guid: afb25906a350a75479da8b3117a0c093,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.g
-      value: 0.36366436
-      objectReference: {fileID: 0}
-    - target: {fileID: 4922570421039108524, guid: afb25906a350a75479da8b3117a0c093,
-        type: 3}
-      propertyPath: InitialModule.startColor.minColor.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4922570421039108524, guid: afb25906a350a75479da8b3117a0c093,
-        type: 3}
-      propertyPath: InitialModule.startColor.minColor.g
-      value: 0.54973066
-      objectReference: {fileID: 0}
-    - target: {fileID: 4922570421039108524, guid: afb25906a350a75479da8b3117a0c093,
-        type: 3}
-      propertyPath: InitialModule.startColor.minColor.b
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4922570421039108524, guid: afb25906a350a75479da8b3117a0c093,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.r
-      value: 0.6415094
-      objectReference: {fileID: 0}
-    - target: {fileID: 4922570421039108524, guid: afb25906a350a75479da8b3117a0c093,
-        type: 3}
-      propertyPath: InitialModule.startColor.maxColor.b
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5388817155953357092, guid: afb25906a350a75479da8b3117a0c093,
         type: 3}
       propertyPath: m_Name
@@ -837,11 +797,6 @@ PrefabInstance:
     - target: {fileID: 5388817155953357093, guid: afb25906a350a75479da8b3117a0c093,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 7326894851709548082, guid: afb25906a350a75479da8b3117a0c093,
-        type: 3}
-      propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
