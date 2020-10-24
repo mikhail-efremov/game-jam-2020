@@ -1,4 +1,5 @@
-﻿using EZCameraShake;
+﻿using System.Collections;
+using EZCameraShake;
 using UnityEngine;
 
 public class Explosion : MonoBehaviour
@@ -23,6 +24,7 @@ public class Explosion : MonoBehaviour
   {
     if (other.collider.CompareTag("Player"))
     {
+      StartCoroutine(BlockInput());
       Boom(other);
     }
   }
@@ -38,5 +40,17 @@ public class Explosion : MonoBehaviour
     if (!_rigidbody.isKinematic)
       _rigidbody.AddForce(collision.contacts[0].normal * _boomPower, ForceMode2D.Impulse);
     CameraShaker.Instance.ShakeOnce(Magnitude, Roughness, 0, FadeOutTime);
+  }
+
+  private IEnumerator BlockInput()
+  {
+    var car = GetComponent<Car>();
+    if (car == null)
+      yield break;
+    
+    car.IsPlayerControlled = false;
+    car.GetComponent<Rigidbody2D>().velocity = Vector2.zero;
+    yield return new WaitForSeconds(1.5f);
+    car.IsPlayerControlled = true;
   }
 }

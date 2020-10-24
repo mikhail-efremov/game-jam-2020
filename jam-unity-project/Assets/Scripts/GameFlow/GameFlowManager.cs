@@ -119,17 +119,12 @@ namespace GameFlow
 
     private void SetToGameplay()
     {
-      DisableFinishes();
-
       _setTimerAlarm = false;
       CurrentStateId = GameFlowStateId.Gameplay;
 
       if (CurrentCar != null)
         CurrentCar.enabled = true;
 
-      GetComponent<GameController>().GetNextCar();
-      var finish = Finishes.Find(x => x.Index == GetComponent<GameController>().CurrentCarIndex + 1);
-      finish.gameObject.SetActive(true);
       _disableSpace = false;
     }
 
@@ -217,16 +212,24 @@ namespace GameFlow
         _firstPlayerTurn.gameObject.SetActive(true);
       if (CurrentPlayer == PlayerTypeId.Second)
         _secondPlayerTurn.gameObject.SetActive(true);
+      
+      GetComponent<GameController>().GetNextCar();
+      CurrentCar.IsPlayerControlled = false;
+      
+      DisableFinishes();
+      
+      var finish = Finishes.Find(x => x.Index == GetComponent<GameController>().CurrentCarIndex + 1);
+      finish.gameObject.SetActive(true);
 
-      yield return new WaitForSeconds(1f);
+      yield return new WaitForSeconds(2f);
+      
+      CurrentCar.IsPlayerControlled = true;
 
       _firstPlayerTurn.gameObject.SetActive(false);
       _secondPlayerTurn.gameObject.SetActive(false);
 
       SetToGameplay();
       GetComponent<GameController>().StartController();
-
-      yield break;
     }
   }
 }
