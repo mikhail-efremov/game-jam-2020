@@ -11,10 +11,24 @@ public class Explosion : MonoBehaviour
   public float FxCooldownSecond = .2f;
 
   private float _lastBoomTime;
+
+  [SerializeField] private GameObject _lowSmokeFx;
+  [SerializeField] private GameObject _hightSmokeFx;
   
   [SerializeField] private GameObject _fx;
   [SerializeField] private float _boomPower;
   [SerializeField] private float _boomPowerBarrel;
+
+  private int _hitsCount;
+  public int HitsCount
+  {
+    get => _hitsCount;
+    set
+    {
+      _hitsCount = value;
+      UpdateFx();
+    }
+  }
 
   private IEnumerator _routine;
 
@@ -22,6 +36,9 @@ public class Explosion : MonoBehaviour
   private void Start()
   {
     _rigidbody = GetComponent<Rigidbody2D>();
+
+    _lowSmokeFx.SetActive(false);
+    _hightSmokeFx.SetActive(false);
   }
 
   private void OnCollisionEnter2D(Collision2D other)
@@ -38,10 +55,35 @@ public class Explosion : MonoBehaviour
     }
   }
 
+  private void UpdateFx()
+  {
+    if (HitsCount == 0)
+    {
+      _lowSmokeFx.SetActive(false);
+      _hightSmokeFx.SetActive(false);
+    }
+
+    if (HitsCount == 1)
+      _lowSmokeFx.SetActive(true);
+
+    if (HitsCount > 1)
+    {
+      _lowSmokeFx.SetActive(false);
+      _hightSmokeFx.SetActive(true);
+    }
+  }
+
   private void Boom(Collision2D collision)
   {
     if (Time.time - _lastBoomTime < FxCooldownSecond)
       return;
+
+    if (FindObjectOfType<GameController>().TimeLapsIsActive)
+      HitsCount--;
+    else
+      HitsCount++;
+    
+    UpdateFx();
     
     _lastBoomTime = Time.time;
     

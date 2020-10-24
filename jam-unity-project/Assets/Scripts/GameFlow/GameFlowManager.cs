@@ -202,6 +202,12 @@ namespace GameFlow
       }
 
       GetComponent<GameController>().DisableTimeLaps();
+      
+      foreach (var car in GetComponent<GameController>().CarsInstances)
+      {
+        var explosion = car.GetComponent<Explosion>();
+        explosion.HitsCount = 0;
+      }
 
       _firstPlayerFinished.gameObject.SetActive(false);
       _secondPlayerFinished.gameObject.SetActive(false);

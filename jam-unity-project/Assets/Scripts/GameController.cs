@@ -16,7 +16,7 @@ public class GameController : MonoBehaviour
 
   public bool TimeLapsIsActive => _isTimeLapse && _gameTick > 0;
 
-  private List<GameObject> _cars = new List<GameObject>();
+  public List<GameObject> CarsInstances = new List<GameObject>();
   private Dictionary<int, List<CarPosition>> _carToPositions = new Dictionary<int, List<CarPosition>>();
   private int _gameTick;
   private bool _isTimeLapse;
@@ -69,7 +69,7 @@ public class GameController : MonoBehaviour
 
   private void MoveStraightforward()
   {
-    var currentCar = _cars[CurrentCarIndex];
+    var currentCar = CarsInstances[CurrentCarIndex];
     _carToPositions[CurrentCarIndex].Add(new CarPosition(currentCar.transform.position, currentCar.transform.rotation));
 
     for (var i = 0; i < CurrentCarIndex; i++)
@@ -81,8 +81,8 @@ public class GameController : MonoBehaviour
   private void UpdatePos(int i)
   {
     var currentTick = Mathf.Clamp(_gameTick, 0, _carToPositions[i].Count-1);
-    _cars[i].transform.position = _carToPositions[i][currentTick].position;
-    _cars[i].transform.rotation = _carToPositions[i][currentTick].rotation;
+    CarsInstances[i].transform.position = _carToPositions[i][currentTick].position;
+    CarsInstances[i].transform.rotation = _carToPositions[i][currentTick].rotation;
   }
 
   public void NextCar()
@@ -98,11 +98,11 @@ public class GameController : MonoBehaviour
     carComponent.IsPlayerControlled = true;
 
     GameFlowManager.Instance.CurrentCar = carComponent;
-    _cars.Add(carComponent.gameObject);
+    CarsInstances.Add(carComponent.gameObject);
     _carToPositions.Add(CurrentCarIndex, new List<CarPosition>());
     _gameTick = 0;
 
-    _cars[CurrentCarIndex].GetComponent<Car>().Outline.SetActive(true);
+    CarsInstances[CurrentCarIndex].GetComponent<Car>().Outline.SetActive(true);
   }
 
   private void ColorCar(Car car)
