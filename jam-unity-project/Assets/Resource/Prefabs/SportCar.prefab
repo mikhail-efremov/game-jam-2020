@@ -1728,7 +1728,7 @@ MonoBehaviour:
   Mesh: {fileID: 8615525823093321372}
   Outline: {fileID: 9053794557969869478}
   IsPlayerControlled: 0
-  CGHeight: 0.55
+  CGHeight: 0.8
   InertiaScale: 1
   BrakePower: 12000
   EBrakePower: 4800
