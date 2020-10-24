@@ -119,14 +119,24 @@ public class Explosion : MonoBehaviour
 
     if (_routine != null)
     {
+      Time.timeScale = 1f;
       StopCoroutine(_routine);
       _routine = null;
     }
 
+    Time.timeScale = .6f;
     _routine = TweekHromAbberations(time);
     StartCoroutine(_routine);
-    yield return new WaitForSeconds(time);
+    
+    yield return new WaitForSeconds(time/3);
+    Time.timeScale = .7f;
+    yield return new WaitForSeconds(time/3);
+    Time.timeScale = .85f;
+    yield return new WaitForSeconds(time/3);
+    
     car.IsPlayerControlled = true;
+    
+    Time.timeScale = 1f;
   }
 
   private IEnumerator TweekHromAbberations(float time)
@@ -137,7 +147,7 @@ public class Explosion : MonoBehaviour
 
     var startTime = Time.time;
     while (Time.time < startTime + time)
-    {
+    { 
       myChromaticAberration.intensity.Override(1f - (Time.time - startTime) / time);
       yield return null;
     }
