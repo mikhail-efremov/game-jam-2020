@@ -16,7 +16,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8764695043061540143
 Transform:
   m_ObjectHideFlags: 0
@@ -1554,7 +1554,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Mesh: {fileID: 6043532500831524294}
-  Outline: {fileID: 3846865941050356592, guid: 3c82322ef82006e43bf175ae0d049f90, type: 3}
+  Outline: {fileID: 17467160906939792}
   IsPlayerControlled: 0
   CGHeight: 0.8
   InertiaScale: 1
