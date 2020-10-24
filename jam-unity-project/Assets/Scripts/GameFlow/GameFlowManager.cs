@@ -160,7 +160,6 @@ namespace GameFlow
         _secondPlayerLose.gameObject.SetActive(true);
       
       _confetty.SetActive(true);
-      Debug.Log("Loss");
       _winMusic.clip = _winSound;
       _winMusic.Play();
       
