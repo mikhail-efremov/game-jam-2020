@@ -14,18 +14,18 @@ namespace GameFlow
   {
     public Car CurrentCar;
     [SerializeField] private Image _timerIcon;
-    [SerializeField] private TextMeshProUGUI _timerText;
+    [SerializeField] private Text _timerText;
 
-    [SerializeField] private TextMeshProUGUI _tabToStartLabel;
+    [SerializeField] private Text _tabToStartLabel;
 
-    [SerializeField] private TextMeshProUGUI _firstPlayerTurn;
-    [SerializeField] private TextMeshProUGUI _secondPlayerTurn;
+    [SerializeField] private Text _firstPlayerTurn;
+    [SerializeField] private Text _secondPlayerTurn;
 
-    [SerializeField] private TextMeshProUGUI _firstPlayerFinished;
-    [SerializeField] private TextMeshProUGUI _secondPlayerFinished;
+    [SerializeField] private Text _firstPlayerFinished;
+    [SerializeField] private Text _secondPlayerFinished;
 
-    [SerializeField] private TextMeshProUGUI _firstPlayerLose;
-    [SerializeField] private TextMeshProUGUI _secondPlayerLose;
+    [SerializeField] private Text _firstPlayerLose;
+    [SerializeField] private Text _secondPlayerLose;
 
     public GameFlowStateId CurrentStateId;
     public PlayerTypeId CurrentPlayer;
