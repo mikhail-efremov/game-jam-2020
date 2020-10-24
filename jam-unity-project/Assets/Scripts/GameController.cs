@@ -111,8 +111,12 @@ public class GameController : MonoBehaviour
       playerColor = _firstPlayerColor;
     else
       playerColor = _secondPlayerColor;
-    var meshMaterial = Instantiate(car.Mesh.sharedMaterial);
-    meshMaterial.SetColor("_ColorRed", playerColor);
-    car.Mesh.material = meshMaterial;
+
+    if (car.Mesh != null)
+    {
+      var meshMaterial = Instantiate(car.Mesh.sharedMaterial);
+      meshMaterial.SetColor("_ColorRed", playerColor);
+      car.Mesh.material = meshMaterial;
+    }
   }
 }
