@@ -2014,6 +2014,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1.0000002}
   m_EdgeRadius: 0
+--- !u!95 &4307452379964447430
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 634016808818068010}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: f22ec2296c4b3354094299973c1fe073, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &619464304830837362
 GameObject:
   m_ObjectHideFlags: 0
@@ -3770,6 +3789,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7abc49f90bc7c7b4a8706ebe892cb4aa, type: 3}
+--- !u!1 &634016808818068010 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 7abc49f90bc7c7b4a8706ebe892cb4aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 291910700529842043}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &254359101017559184 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: -8679921383154817045, guid: 7abc49f90bc7c7b4a8706ebe892cb4aa,
