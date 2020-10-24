@@ -242,6 +242,23 @@ public class Car : MonoBehaviour
 			AxleRear.TireLeft.SetTrailActive (false);
 		}
 
+		foreach (Transform wheelPart in AxleFront.TireLeft.transform.GetChild(0).transform)
+		{
+			wheelPart.Rotate(-LocalVelocity.x, 0, 0);
+		}
+		foreach (Transform wheelPart in AxleFront.TireRight.transform.GetChild(0).transform)
+		{
+			wheelPart.Rotate(-LocalVelocity.x, 0, 0);
+		}
+		foreach (Transform wheelPart in AxleRear.TireLeft.transform.GetChild(0).transform)
+		{
+			wheelPart.Rotate(-LocalVelocity.x, 0, 0);
+		}
+		foreach (Transform wheelPart in AxleRear.TireRight.transform.GetChild(0).transform)
+		{
+			wheelPart.Rotate(-LocalVelocity.x, 0, 0);
+		}
+
 		// Automatic transmission
 		Engine.UpdateAutomaticTransmission (Rigidbody2D);
 	}
