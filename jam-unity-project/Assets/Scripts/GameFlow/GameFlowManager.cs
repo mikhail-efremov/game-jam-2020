@@ -13,6 +13,8 @@ namespace GameFlow
   {
     public Car CurrentCar;
 
+    [SerializeField] private AudioSource _backMusic;
+    
     [SerializeField] private GameObject _confetty;
     
     [SerializeField] private Image _timerIcon;
@@ -49,6 +51,8 @@ namespace GameFlow
 
     private void Start()
     {
+      _backMusic.Play();
+      
       Starts = FindObjectsOfType<StartTrigger>().ToList();
       Finishes = FindObjectsOfType<FinishTrigger>().ToList();
       DisableFinishes();
