@@ -11,6 +11,8 @@ public class GameController : MonoBehaviour
   public int CurrentCarIndex = -1;
 
   [SerializeField] private Car[] Cars;
+  [SerializeField] private Color _firstPlayerColor;
+  [SerializeField] private Color _secondPlayerColor;
 
   public bool TimeLapsIsActive => _isTimeLapse && _gameTick > 0;
 
@@ -90,15 +92,27 @@ public class GameController : MonoBehaviour
       .First(x => x.Index == CurrentCarIndex + 1);
     var startTransform = start.transform;
 
-    var go = Instantiate(Cars[CurrentCarIndex], startTransform.position, startTransform.rotation);
-    var carComponent = go.GetComponent<Car>();
+    var carComponent = Instantiate(Cars[CurrentCarIndex], startTransform.position, startTransform.rotation);
+    ColorCar(carComponent);
     carComponent.IsPlayerControlled = true;
 
     GameFlowManager.Instance.CurrentCar = carComponent;
-    _cars.Add(go.gameObject);
+    _cars.Add(carComponent.gameObject);
     _carToPositions.Add(CurrentCarIndex, new List<CarPosition>());
     _gameTick = 0;
 
     _cars[CurrentCarIndex].GetComponent<Car>().Outline.SetActive(true);
+  }
+
+  private void ColorCar(Car car)
+  {
+    Color playerColor;
+    if (GameFlowManager.Instance.CurrentPlayer == PlayerTypeId.First)
+      playerColor = _firstPlayerColor;
+    else
+      playerColor = _secondPlayerColor;
+    var meshMaterial = Instantiate(car.Mesh.sharedMaterial);
+    meshMaterial.SetColor("_ColorRed", playerColor);
+    car.Mesh.material = meshMaterial;
   }
 }

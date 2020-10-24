@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 public class Car : MonoBehaviour
 {
-
+	public MeshRenderer Mesh;
 	public GameObject Outline;
 
 	public bool IsPlayerControlled;
