@@ -211,9 +211,9 @@ public class Car : MonoBehaviour
 			Brake = 0;
 			EBrake = 0;
 
-			if (Input.GetKey (KeyCode.UpArrow)) {
+			if (Input.GetKey (KeyCode.W) || Input.GetKey (KeyCode.UpArrow)) {
 				Throttle = 1;
-			} else if (Input.GetKey (KeyCode.DownArrow)) {
+			} else if (Input.GetKey (KeyCode.S)|| Input.GetKey (KeyCode.DownArrow)) {
 				//Brake = 1;
 				Throttle = -1;
 			}
@@ -224,14 +224,14 @@ public class Car : MonoBehaviour
 			}
 
 			float steerInput = 0;
-			if(Input.GetKey(KeyCode.LeftArrow))	{
+			if(Input.GetKey(KeyCode.A)|| Input.GetKey (KeyCode.LeftArrow))	{
 				steerInput = 1;
 			}
-			else if(Input.GetKey(KeyCode.RightArrow)) {
+			else if(Input.GetKey(KeyCode.D) || Input.GetKey (KeyCode.RightArrow)) {
 				steerInput = -1;
 			}
 
-			if (Input.GetKeyDown (KeyCode.A)) {
+			if (Input.GetKeyDown (KeyCode.X)) {
 				Engine.ShiftUp();
 			} else if (Input.GetKeyDown (KeyCode.Z)) {
 				Engine.ShiftDown();
