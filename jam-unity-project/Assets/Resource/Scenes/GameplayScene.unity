@@ -330,6 +330,18 @@ AudioSource:
     type: 3}
   m_PrefabInstance: {fileID: 702651113}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &702651122 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5698537891749873412, guid: 2dc5c994d058ba94b8264647fd04eb87,
+    type: 3}
+  m_PrefabInstance: {fileID: 702651113}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1532025047
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -376,7 +388,7 @@ PrefabInstance:
     - target: {fileID: 146899059, guid: 2c006ffb812095f49920b03efbda01eb, type: 3}
       propertyPath: _secondPlayerLose
       value: 
-      objectReference: {fileID: 702651115}
+      objectReference: {fileID: 702651122}
     - target: {fileID: 8126970907027706050, guid: 2c006ffb812095f49920b03efbda01eb,
         type: 3}
       propertyPath: m_LocalPosition.x
