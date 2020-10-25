@@ -6,7 +6,7 @@ using UnityEngine;
 
 public class GameController : MonoBehaviour
 {
-  public const float turnDuration = 15f;
+  public const float turnDuration = 20f;
   public const float timelapseDuration = 5f;
   public int CurrentCarIndex = -1;
 
