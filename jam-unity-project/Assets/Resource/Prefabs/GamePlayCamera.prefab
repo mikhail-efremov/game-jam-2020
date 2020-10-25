@@ -122,7 +122,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   DefaultPosInfluence: {x: 0.15, y: 0.15, z: 0.15}
   DefaultRotInfluence: {x: 1, y: 1, z: 1}
-  RestPositionOffset: {x: 0, y: -141.05, z: -166.2}
+  RestPositionOffset: {x: 2.9, y: -143.3, z: -168.02}
   RestRotationOffset: {x: -40, y: 0, z: 0}
 --- !u!114 &21503312
 MonoBehaviour:
